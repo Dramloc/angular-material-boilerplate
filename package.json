@@ -1,0 +1,30 @@
+{
+  "name": "angular-material-boilerplate",
+  "description": "Angular Material boilerplate",
+  "version": "1.0.0",
+  "author": "Antoine Colmard <a.colmard@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "keywords": [
+    "boilerplate",
+    "angular-material",
+    "angular"
+  ],
+  "scripts": {
+    "start": "gulp",
+    "postinstall": "bower install"
+  },
+  "devDependencies": {
+    "bower": "^1.7.7",
+    "gulp": "^3.9.1",
+    "gulp-angular-templatecache": "^1.8.0",
+    "gulp-clean-css": "^2.0.3",
+    "gulp-concat": "^2.6.0",
+    "gulp-footer": "^1.0.5",
+    "gulp-header": "^1.7.1",
+    "gulp-minify": "0.0.5",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-sass": "^2.2.0",
+    "gulp-serve": "^1.2.0"
+  }
+}

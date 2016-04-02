@@ -1,0 +1,60 @@
+<div ng-controller="TaskController as vm" class="tasks">
+    <md-toolbar md-scroll-shrink ng-if="true">
+        <div class="md-toolbar-tools">
+            <md-button class="md-fab md-mini" ng-click="vm.create()">
+                <md-icon md-font-library="material-icons">add</md-icon>
+            </md-button>
+            <h3>{{ 'menu.tasks' | translate }}</h3>
+        </div>
+    </md-toolbar>
+    
+    <md-content>
+        <md-list ng-if="!vm.task">
+            <md-subheader class="md-no-sticky">
+                <span translate="tasks.count" translate-value-count="{{vm.tasks.length}}"></span>
+            </md-subheader>
+            <md-list-item ng-repeat="task in vm.tasks">
+                <md-menu md-offset="0 -7">
+                    <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)" aria-label="{{ 'more' | translate }}">
+                        <md-icon md-font-library="material-icons">more_vert</md-icon>
+                    </md-button>
+                    <md-menu-content width="2">
+                        <md-menu-item>
+                            <md-button ng-click="vm.edit(task)" aria-label="{{ 'edit' | translate }}">
+                                <md-icon md-font-library="material-icons">edit</md-icon>
+                                {{ 'edit' | translate }}
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="vm.remove(task)" aria-label="{{ 'delete' | translate }}">
+                                <md-icon md-font-library="material-icons">delete</md-icon>
+                                {{ 'delete' | translate }}
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+                
+                <p>{{ task.name }}</p>
+            </md-list-item>
+        </md-list>
+
+        <form ng-submit="vm.save()" name="taskForm" ng-if="vm.task" class="md-padding">
+            <md-input-container class="md-block">
+                <label>{{ 'task.name' | translate }}</label>
+                <input name="name" ng-model="vm.task.name" required aria-label="{{ 'task.name' | translate }}" />
+            </md-input-container>
+            
+            <md-input-container class="md-block">
+                <label>{{ 'task.description' | translate }}</label>
+                <textarea name="description" ng-model="vm.task.description" aria-label="{{ 'task.description' | translate }}"></textarea>
+            </md-input-container>
+
+            <md-button class="md-primary md-raised" type="submit">
+                {{ 'save' | translate }}
+            </md-button>
+            <md-button class="md-raised" type="button" ng-click="vm.cancel()">
+                {{ 'cancel' | translate }}
+            </md-button>
+        </form>
+    </md-content>
+</div>
