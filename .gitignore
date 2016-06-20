@@ -1,5 +1,3 @@
 node_modules
-public/vendors
 public/dist
-app/core/core-templates.js
 *.log
