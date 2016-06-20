@@ -2,11 +2,11 @@ angular.module('app.layout')
     .directive('abpLayout', layout);
 
 /*@ngInject*/
-function layout($templateCache) {
+function layout() {
     return {
         restrict: 'E',
         transclude: true,
-        template: $templateCache.get('layout/layout.html'),
+        templateUrl: 'layout/layout.html',
         controller: 'LayoutController',
         controllerAs: 'layoutController'
     };
