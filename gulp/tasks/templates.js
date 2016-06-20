@@ -10,6 +10,7 @@ gulp.task('templates:clean', function () {
 
 gulp.task('templates:build', ['templates:clean'], function () {
     return gulp.src(config.templates.sources)
+        .pipe(config.production ? $.htmlmin({collapseWhitespace: true}) : $.util.noop())
         .pipe($.angularTemplatecache({
             standalone: true,
             filename: config.templates.destinationName,
