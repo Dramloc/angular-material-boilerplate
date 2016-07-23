@@ -10,7 +10,7 @@ gulp.task('clean', ['browserify:clean', 'scripts:clean', 'sass:clean', 'template
 gulp.task('serve', ['watch'], function () {
     $.connect.server({
         root: config.serve.root,
-        livereload: true
+        livereload: !config.production
     });
 });
 
