@@ -1,4 +1,4 @@
-angular.module('app.core.translations')
+angular.module('app.core')
     .config(translationsConfiguration);
 
 /*@ngInject*/
@@ -8,16 +8,14 @@ function translationsConfiguration($translateProvider) {
         'app.name': 'Boilerplate',
         'layout.menu': 'Menu',
         'menu.tasks': 'Tasks',
-        'task.name': 'Name',
-        'task.description': 'Description',
-        'tasks.count': '{{count}} tasks',
-        'submit': 'Submit',
         'add': 'Add',
         'save': 'Save',
         'edit': 'Edit',
         'delete': 'Delete',
         'cancel': 'Cancel',
-        'more': 'More'
+        'more': 'More',
+        'retry': 'Retry',
+        'search': 'Search'
     });
 
     $translateProvider.fallbackLanguage(['en'])

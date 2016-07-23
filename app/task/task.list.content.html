@@ -1,0 +1,8 @@
+<md-list>
+    <md-list-item ng-repeat="task in vm.tasks" class="md-2-line" ng-click="vm.edit(task)">
+        <div class="md-list-item-text">
+            <h3>{{ task.name }}</h3>
+            <p>{{ task.description }}</p>
+        </div>
+    </md-list-item>
+</md-list>

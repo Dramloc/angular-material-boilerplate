@@ -11,10 +11,47 @@
     <link type="text/css" rel="stylesheet" href="dist/angular-material-boilerplate.css">
 </head>
 
-<body>
-    <abp-layout>
-        <div ui-view></div>
-    </abp-layout>
+<body ng-controller="LayoutController as vm" ng-cloak layout="row">
+    <md-sidenav md-component-id="sidebar" class="md-sidenav-left" md-whiteframe="16" md-is-locked-open="$mdMedia('gt-md')" ng-cloak>
+        <md-toolbar class="md-tall">
+            <span flex></span>
+            <div layout="column" class="user-profile inset">
+                <user-avatar></user-avatar>
+                <span class="user-name">Firstname Lastname</span>
+                <span class="user-email">email@domainname.com</span>
+            </div>
+        </md-toolbar>
+        <md-menu-content>
+            <md-menu-item ng-repeat="menuItem in vm.menuItems" ui-sref="{{menuItem.state}}" ng-click="vm.closeSidenav()">
+                <md-button>
+                    <md-icon md-font-library="material-icons">{{menuItem.icon}}</md-icon>
+                    {{menuItem.name | translate}}
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-sidenav>
+
+    <div layout="column" flex>
+        <md-toolbar md-whiteframe="4">
+            <div class="md-toolbar-tools">
+                <md-button class="md-icon-button" hide-gt-md ng-click="vm.handleBackMenuClick()" aria-label="{{'layout.menu' | translate}}">
+                    <div class="back-menu" ng-class="{'toggled': !vm.isMenuAvailable()}">
+                        <div class="bar top"></div>
+                        <div class="bar middle"></div>
+                        <div class="bar bottom"></div>
+                    </div>
+                </md-button>
+                <md-button class="md-icon-button" ng-show="!vm.isMenuAvailable()" hide show-gt-md ng-click="vm.handleBackMenuClick()" aria-label="{{'layout.menu' | translate}}">
+                    <md-icon md-font-library="material-icons">arrow_back</md-icon>
+                </md-button>
+                <span flex></span>
+                <div ui-view="toolbar"></div>
+            </div>
+        </md-toolbar>
+        <md-content ui-view="content"></md-content>
+        <div ui-view="fab"></div>
+    </div>
+
     <script type="text/javascript" src="dist/bundle.js"></script>
     <script type="text/javascript" src="dist/templates.js"></script>
     <script type="text/javascript" src="dist/angular-material-boilerplate.js"></script>

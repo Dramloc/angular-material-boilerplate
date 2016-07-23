@@ -1,13 +1,18 @@
 angular.module('app.core')
-    .config(routeConfiguration);
+    .config(routeConfiguration)
+    .run(stateChangeConfiguration);
 
 /*@ngInject*/
-function routeConfiguration($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider
-        .otherwise('/');
-    $stateProvider
-        .state('tasks', {
-            url: '/tasks',
-            templateUrl: 'tasks/tasks.html'
-        });
+function routeConfiguration($urlRouterProvider) {
+    $urlRouterProvider.otherwise('/tasks');
+}
+
+/*@ngInject*/
+function stateChangeConfiguration($rootScope, $state) {
+    $rootScope.$on('$stateChangeStart', function (event, to, params) {
+        if (to.redirectTo) {
+            event.preventDefault();
+            $state.go(to.redirectTo, params, { location: 'replace' })
+        }
+    });
 }
