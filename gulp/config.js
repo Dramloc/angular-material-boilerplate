@@ -29,7 +29,8 @@ module.exports = {
         destinationName: 'bundle.js'
     },
     serve: {
-        root: './public'
+        root: './public',
+        port: process.env.PORT || 3000
     },
-    production: !!$.util.env.production
+    production: 'production' === process.env.NODE_ENV
 };

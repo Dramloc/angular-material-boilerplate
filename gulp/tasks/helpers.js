@@ -7,10 +7,11 @@ gulp.task('build', ['browserify:build', 'scripts:build', 'sass:build', 'template
 gulp.task('lint', ['scripts:lint']);
 gulp.task('clean', ['browserify:clean', 'scripts:clean', 'sass:clean', 'templates:clean']);
 
-gulp.task('serve', ['watch'], function () {
+gulp.task('serve', config.production ? null : ['watch'], function () {
     $.connect.server({
         root: config.serve.root,
-        livereload: !config.production
+        livereload: !config.production,
+        port: config.serve.port
     });
 });
 
