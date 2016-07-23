@@ -15,7 +15,8 @@ function translationsConfiguration($translateProvider) {
         'cancel': 'Cancel',
         'more': 'More',
         'retry': 'Retry',
-        'search': 'Search'
+        'search': 'Search',
+        'settings': 'Settings'
     });
 
     $translateProvider.fallbackLanguage(['en'])

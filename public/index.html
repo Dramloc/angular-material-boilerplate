@@ -29,6 +29,15 @@
                 </md-button>
             </md-menu-item>
         </md-menu-content>
+        <md-divider></md-divider>
+        <md-menu-content>
+            <md-menu-item ui-sref="settings" ng-click="vm.closeSidenav()">
+                <md-button>
+                    <md-icon md-font-library="material-icons">settings</md-icon>
+                    {{'settings' | translate}}
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
     </md-sidenav>
 
     <div layout="column" flex>
