@@ -1,8 +1,20 @@
-<md-list>
-    <md-list-item ng-repeat="task in vm.tasks" class="md-2-line" ng-click="vm.edit(task)">
-        <div class="md-list-item-text">
-            <h3>{{ task.name }}</h3>
-            <p>{{ task.description }}</p>
-        </div>
-    </md-list-item>
-</md-list>
+<div class="md-padding">
+    <md-card ng-repeat="task in vm.tasks">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{task.name}}</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <p>{{task.description}}</p>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button class="md-icon-button" aria-label="{{'remove' | translate}}" ng-click="vm.remove(task)">
+                <md-icon md-font-library="material-icons">delete</md-icon>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="{{'edit' | translate}}" ng-click="vm.edit(task)">
+                <md-icon md-font-library="material-icons">edit</md-icon>
+            </md-button>
+        </md-card-actions>
+    </md-card>
+</div>
