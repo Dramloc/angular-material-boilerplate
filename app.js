@@ -6,4 +6,4 @@ require('angular-sanitize');
 require('angular-translate');
 require('angular-ui-router');
 
-require('./entry.css');
+require('./app.css');

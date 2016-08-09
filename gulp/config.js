@@ -24,7 +24,7 @@ module.exports = {
         destinationName: package.name + '.css'
     },
     browserify: {
-        sources: './entry.js',
+        sources: './app.js',
         destination: './public/dist',
         destinationName: 'bundle.js'
     },
