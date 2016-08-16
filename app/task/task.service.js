@@ -23,44 +23,8 @@ function taskService($q, $timeout) {
         id: 5,
         name: "Foo",
         description: "Bar"
-    }, {
-        id: 6,
-        name: "Foo",
-        description: "Bar"
-    }, {
-        id: 7,
-        name: "Foo",
-        description: "Bar"
-    }, {
-        id: 8,
-        name: "Foo",
-        description: "Bar"
-    }, {
-        id: 9,
-        name: "Foo",
-        description: "Bar"
-    }, {
-        id: 10,
-        name: "Foo",
-        description: "Bar"
-    }, {
-        id: 11,
-        name: "Foo",
-        description: "Bar"
-    }, {
-        id: 12,
-        name: "Foo",
-        description: "Bar"
-    }, {
-        id: 13,
-        name: "Foo",
-        description: "Bar"
-    }, {
-        id: 14,
-        name: "Foo",
-        description: "Bar"
     }];
-    var stubIndex = 0;
+    var stubIndex = 5;
     var service = {
         getTask: getTask,
         getTasks: getTasks,
