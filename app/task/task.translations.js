@@ -4,8 +4,8 @@ angular.module('app.task')
 /*@ngInject*/
 function translationsConfiguration($translateProvider) {
     $translateProvider.translations('en', {
+        'menu.tasks': 'Tasks',
         'task.name': 'Name',
-        'task.description': 'Description',
-        'tasks.save.error': 'Failed to save task'
+        'task.description': 'Description'
     });
 }

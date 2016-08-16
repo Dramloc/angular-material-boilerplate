@@ -12,10 +12,8 @@ function translationsConfiguration($translateProvider) {
         'edit': 'Edit',
         'delete': 'Delete',
         'cancel': 'Cancel',
-        'more': 'More',
         'retry': 'Retry',
-        'search': 'Search',
-        'settings': 'Settings'
+        'search': 'Search'
     });
 
     $translateProvider.fallbackLanguage(['en'])
