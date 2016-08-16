@@ -1,0 +1,21 @@
+<amb-layout>
+    <amb-layout-toolbar>
+        <md-button class="md-icon-button" aria-label="{{ 'delete' | translate }}" ng-click="vm.remove(vm.task)">
+            <md-icon md-font-library="material-icons">delete</md-icon>
+        </md-button>
+        <md-button class="md-icon-button" aria-label="{{ 'save' | translate }}" ng-click="vm.update(vm.task)">
+            <md-icon md-font-library="material-icons">check</md-icon>
+        </md-button>
+    </amb-layout-toolbar>
+
+    <amb-layout-content>
+        <md-input-container class="md-block">
+            <label>{{ 'task.name' | translate }}</label>
+            <input name="name" ng-model="vm.task.name" required aria-label="{{ 'task.name' | translate }}" />
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>{{ 'task.description' | translate }}</label>
+            <textarea name="description" ng-model="vm.task.description" aria-label="{{ 'task.description' | translate }}"></textarea>
+        </md-input-container>
+    </amb-layout-content>
+</amb-layout>

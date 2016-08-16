@@ -3,19 +3,29 @@ angular.module('app.task')
 
 /*@ngInject*/
 function taskService($q, $timeout) {
+    var stub = [];
+    var stubIndex = 0;
     var service = {
         getTask: getTask,
         getTasks: getTasks,
         save: save,
-        update: update
+        update: update,
+        remove: remove
     };
 
     return service;
 
     function getTask(id) {
+        console.log('Searching task with id', id);
         var deferred = $q.defer();
         $timeout(function () {
-            deferred.resolve(build(id));
+            for (var index = 0; index < stub.length; ++index) {
+                var task = stub[index];
+                if (id === task.id) {
+                    return deferred.resolve(task);
+                }
+            }
+            return deferred.reject();
         }, 100);
         return deferred.promise;
     }
@@ -23,34 +33,24 @@ function taskService($q, $timeout) {
     function getTasks() {
         var deferred = $q.defer();
         $timeout(function () {
-            deferred.resolve([
-                build(1),
-                build(2),
-                build(3),
-                build(4),
-                build(5),
-                build(6),
-                build(7),
-                build(8),
-                build(9),
-                build(10),
-                build(11),
-                build(12),
-                build(13),
-                build(14),
-                build(15),
-                build(16),
-                build(17),
-                build(18),
-                build(19),
-                build(20),
-                build(21),
-            ]);
+            deferred.resolve(stub);
         }, 100);
         return deferred.promise;
     }
 
-    function save() {
+    function save(task) {
+        var deferred = $q.defer();
+        $timeout(function () {
+            task.id = ++stubIndex;
+            console.log('Saving task', task);
+            stub.push(task);
+            deferred.resolve();
+        }, 100);
+        return deferred.promise;
+    }
+
+    function update(task) {
+        console.log('Updating task', task);
         var deferred = $q.defer();
         $timeout(function () {
             deferred.resolve();
@@ -58,19 +58,13 @@ function taskService($q, $timeout) {
         return deferred.promise;
     }
 
-    function update() {
+    function remove(task) {
+        console.log('Removing task', task);
         var deferred = $q.defer();
         $timeout(function () {
+            stub.splice(stub.indexOf(task), 1);
             deferred.resolve();
         }, 100);
         return deferred.promise;
-    }
-
-    function build(id) {
-        return {
-            id: id,
-            name: 'Task ' + id,
-            description: 'Bar'
-        };
     }
 }

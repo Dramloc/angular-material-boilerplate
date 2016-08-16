@@ -23,12 +23,12 @@ function LayoutController($mdSidenav, $state) {
         $mdSidenav('sidebar').close();
     }
 
-    function handleBackMenuClick() {
+    function handleBackMenuClick(state) {
         if (isMenuAvailable()) {
             $mdSidenav('sidebar').open();
             return;
         }
-        $state.go('^');
+        $state.go(state);
     }
 
     function isMenuAvailable() {
@@ -39,5 +39,5 @@ function LayoutController($mdSidenav, $state) {
             }
         }
         return false;
-    } 
+    }
 }

@@ -5,9 +5,10 @@ angular.module('app.task')
 function TaskEditController($state, $stateParams, $mdToast, $translate, taskService) {
     var vm = this;
     var id = $stateParams.id;
-    vm.task = undefined;
-
+    vm.master = {};
+    vm.task = {};
     vm.update = update;
+    vm.remove = remove;
 
     activate();
 
@@ -20,23 +21,49 @@ function TaskEditController($state, $stateParams, $mdToast, $translate, taskServ
     function getTask(id) {
         return taskService.getTask(id)
             .then(function (task) {
-                vm.task = task;
-            });
-    }
-
-    function update() {
-        return taskService.update(vm.task)
-            .then(function () {
-                $state.go('task');
+                vm.master = task;
+                angular.copy(vm.master, vm.task);
             })
             .catch(function () {
                 var toast = $mdToast.simple()
-                    .textContent($translate.instant('tasks.update.error'))
+                    .textContent($translate.instant('task.not.found'));
+                $mdToast.show(toast);
+                $state.go('task.list');
+            });
+    }
+
+    function update(task) {
+        angular.copy(task, vm.master);
+        return taskService.update(vm.master)
+            .then(function () {
+                $state.go('task.list');
+            })
+            .catch(function () {
+                var toast = $mdToast.simple()
+                    .textContent($translate.instant('task.update.error'))
                     .action($translate.instant('retry'))
-                    .highlightAction(true)
+                    .highlightAction(true);
                 $mdToast.show(toast).then(function (response) {
                     if ('ok' === response) {
-                        update();
+                        update(task);
+                    }
+                });
+            });
+    }
+
+    function remove(task) {
+        return taskService.remove(task)
+            .then(function () {
+                $state.go('task.list');
+            })
+            .catch(function () {
+                var toast = $mdToast.simple()
+                    .textContent($translate.instant('task.remove.error'))
+                    .action($translate.instant('retry'))
+                    .highlightAction(true);
+                $mdToast.show(toast).then(function (response) {
+                    if ('ok' === response) {
+                        remove(task);
                     }
                 });
             });

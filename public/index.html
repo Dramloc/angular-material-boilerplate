@@ -31,26 +31,7 @@
         </md-menu-content>
     </md-sidenav>
 
-    <div layout="column" flex>
-        <md-toolbar md-whiteframe="4">
-            <div class="md-toolbar-tools">
-                <md-button class="md-icon-button" hide-gt-md ng-click="vm.handleBackMenuClick()" aria-label="{{'layout.menu' | translate}}">
-                    <div class="back-menu" ng-class="{'toggled': !vm.isMenuAvailable()}">
-                        <div class="bar top"></div>
-                        <div class="bar middle"></div>
-                        <div class="bar bottom"></div>
-                    </div>
-                </md-button>
-                <md-button class="md-icon-button" ng-show="!vm.isMenuAvailable()" hide show-gt-md ng-click="vm.handleBackMenuClick()" aria-label="{{'layout.menu' | translate}}">
-                    <md-icon md-font-library="material-icons">arrow_back</md-icon>
-                </md-button>
-                <span flex></span>
-                <div ui-view="toolbar"></div>
-            </div>
-        </md-toolbar>
-        <md-content ui-view="content"></md-content>
-        <div ui-view="fab"></div>
-    </div>
+    <div layout="column" flex ui-view></div>
 
     <script type="text/javascript" src="dist/bundle.js"></script>
     <script type="text/javascript" src="dist/templates.js"></script>
