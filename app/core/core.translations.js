@@ -4,8 +4,7 @@ angular.module('app.core')
 /*@ngInject*/
 function translationsConfiguration($translateProvider) {
     $translateProvider.translations('en', {
-        'app.title': 'Boilerplate',
-        'app.name': 'Boilerplate',
+        'app.title': 'Angular Material Boilerplate',
         'layout.menu': 'Menu',
         'menu.tasks': 'Tasks',
         'add': 'Add',
