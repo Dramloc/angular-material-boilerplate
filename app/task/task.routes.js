@@ -7,7 +7,7 @@ function routeConfiguration($stateProvider) {
         .state('task', {
             url: '/tasks',
             abstract: true,
-            template: '<ui-view/>'
+            template: '<ui-view layout flex/>'
         })
         .state('task.list', {
             url: '',

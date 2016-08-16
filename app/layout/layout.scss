@@ -50,3 +50,23 @@ md-sidenav md-toolbar {
         }
     }
 }
+
+amb-layout {
+    box-sizing: border-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 0;
+}
+
+amb-layout-content {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}

@@ -11,28 +11,8 @@
     <link type="text/css" rel="stylesheet" href="dist/angular-material-boilerplate.css">
 </head>
 
-<body ng-controller="LayoutController as vm" ng-cloak layout="row">
-    <md-sidenav md-component-id="sidebar" class="md-sidenav-left" md-whiteframe="16" md-is-locked-open="$mdMedia('gt-md')" ng-cloak>
-        <md-toolbar class="md-tall">
-            <span flex></span>
-            <div layout="column" class="user-profile inset">
-                <user-avatar></user-avatar>
-                <span class="user-name">Firstname Lastname</span>
-                <span class="user-email">email@domainname.com</span>
-            </div>
-        </md-toolbar>
-        <md-menu-content>
-            <md-menu-item ng-repeat="menuItem in vm.menuItems" ui-sref="{{menuItem.state}}" ng-click="vm.closeSidenav()">
-                <md-button>
-                    <md-icon md-font-library="material-icons">{{menuItem.icon}}</md-icon>
-                    {{menuItem.name | translate}}
-                </md-button>
-            </md-menu-item>
-        </md-menu-content>
-    </md-sidenav>
-
-    <div layout="column" flex ui-view></div>
-
+<body layout>
+    <ui-view layout flex/>
     <script type="text/javascript" src="dist/bundle.js"></script>
     <script type="text/javascript" src="dist/templates.js"></script>
     <script type="text/javascript" src="dist/angular-material-boilerplate.js"></script>

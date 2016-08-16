@@ -9,13 +9,17 @@
     </amb-layout-toolbar>
 
     <amb-layout-content>
-        <md-input-container class="md-block">
-            <label>{{ 'task.name' | translate }}</label>
-            <input name="name" ng-model="vm.task.name" required aria-label="{{ 'task.name' | translate }}" />
-        </md-input-container>
-        <md-input-container class="md-block">
-            <label>{{ 'task.description' | translate }}</label>
-            <textarea name="description" ng-model="vm.task.description" aria-label="{{ 'task.description' | translate }}"></textarea>
-        </md-input-container>
+        <md-card>
+            <md-card-content>
+                <md-input-container class="md-block">
+                    <label>{{ 'task.name' | translate }}</label>
+                    <input name="name" ng-model="vm.task.name" required aria-label="{{ 'task.name' | translate }}" />
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>{{ 'task.description' | translate }}</label>
+                    <textarea name="description" ng-model="vm.task.description" aria-label="{{ 'task.description' | translate }}"></textarea>
+                </md-input-container>
+            </md-card-content>
+        </md-card>
     </amb-layout-content>
 </amb-layout>

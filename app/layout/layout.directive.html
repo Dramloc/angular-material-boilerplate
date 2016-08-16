@@ -1,31 +1,45 @@
-<md-toolbar md-whiteframe="4" ng-controller="LayoutController as layoutController">
-    <div class="md-toolbar-tools">
-        <md-button class="md-icon-button" hide-gt-md aria-label="{{'layout.menu' | translate}}" ng-click="layoutController.handleBackMenuClick('task.list')">
-            <div class="back-menu" ng-class="{'toggled': !layoutController.isMenuAvailable()}">
-                <div class="bar top"></div>
-                <div class="bar middle"></div>
-                <div class="bar bottom"></div>
+<div ng-controller="LayoutController as layoutController" layout flex>
+    <md-sidenav md-component-id="sidebar" class="md-sidenav-left" md-whiteframe="16" md-is-locked-open="$mdMedia('gt-md')">
+        <md-toolbar class="md-tall">
+            <span flex></span>
+            <div layout="column" class="user-profile inset">
+                <user-avatar></user-avatar>
+                <span class="user-name">Firstname Lastname</span>
+                <span class="user-email">email@domainname.com</span>
             </div>
-        </md-button>
-        <md-button class="md-icon-button" ng-show="!layoutController.isMenuAvailable()" hide show-gt-md ng-click="layoutController.handleBackMenuClick('task.list')"
-            aria-label="{{'layout.menu' | translate}}">
-            <md-icon md-font-library="material-icons">arrow_back</md-icon>
-        </md-button>
-        <span flex></span>
-        <div ng-transclude="toolbar">
-            <!-- amb-layout-toolbar transclude -->
-        </div>
+        </md-toolbar>
+        <md-menu-content>
+            <md-menu-item ng-repeat="menuItem in layoutController.menuItems" ui-sref="{{menuItem.state}}" ng-click="layoutController.closeSidenav()">
+                <md-button>
+                    <md-icon md-font-library="material-icons">{{menuItem.icon}}</md-icon>
+                    {{menuItem.name | translate}}
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-sidenav>
+
+    <div layout="column" flex>
+        <md-toolbar md-whiteframe="4">
+            <div class="md-toolbar-tools">
+                <md-button class="md-icon-button" hide-gt-md aria-label="{{'layout.menu' | translate}}" ng-click="layoutController.handleBackMenuClick('task.list')">
+                    <div class="back-menu" ng-class="{'toggled': !layoutController.isMenuAvailable()}">
+                        <div class="bar top"></div>
+                        <div class="bar middle"></div>
+                        <div class="bar bottom"></div>
+                    </div>
+                </md-button>
+                <md-button class="md-icon-button" ng-show="!layoutController.isMenuAvailable()" hide show-gt-md ng-click="layoutController.handleBackMenuClick('task.list')"
+                    aria-label="{{'layout.menu' | translate}}">
+                    <md-icon md-font-library="material-icons">arrow_back</md-icon>
+                </md-button>
+                <span flex></span>
+                <div ng-transclude="toolbar"></div>
+            </div>
+        </md-toolbar>
+
+        <md-content ng-transclude="content" layout flex>
+        </md-content>
+
+        <div ng-transclude="fab"></div>
     </div>
-</md-toolbar>
-
-<div layout-padding layout="row" layout-align="center center">
-    <md-card flex-gt-sm="90" flex-gt-md="80" flex>
-        <md-card-content ng-transclude="content">
-            <!-- amb-layout-content transclude -->
-        </md-card-content>
-    </md-card>
-</div>
-
-<div ng-transclude="fab">
-    <!-- amb-layout-fab transclude -->
 </div>
