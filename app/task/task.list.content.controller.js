@@ -11,7 +11,7 @@ function TaskListContentController($state, taskService) {
 
     function activate() {
         return getTasks().then(function () {
-            console.log('TaskListContentController activated.');
+            console.info('TaskListContentController activated.');
         });
     }
 
