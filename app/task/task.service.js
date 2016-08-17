@@ -7,17 +7,20 @@ function taskService($q, $timeout) {
     var stub = [{
         id: ++stubIndex,
         name: "learn angular",
-        description: "first things first"
+        description: "first things first",
+        done: true
     }, {
-        id: ++stubIndex,
-        name: "learn angular material",
-        description: "with great design comes great responsibilities"
-    }, {
-        id: ++stubIndex,
-        name: "build boilerplate",
-        description: "put it all together"
-    }];
-    
+            id: ++stubIndex,
+            name: "learn angular material",
+            description: "with great power comes great design",
+            done: true
+        }, {
+            id: ++stubIndex,
+            name: "build boilerplate",
+            description: "put it all together",
+            done: false
+        }];
+
     var service = {
         getTask: getTask,
         getTasks: getTasks,
@@ -32,13 +35,11 @@ function taskService($q, $timeout) {
         console.log('Searching task with id', id);
         var deferred = $q.defer();
         $timeout(function () {
-            for (var index = 0; index < stub.length; ++index) {
-                var task = stub[index];
-                if (id === task.id) {
-                    return deferred.resolve(task);
-                }
+            var index = getTaskIndex(id);
+            if (undefined === index) {
+                return deferred.reject();
             }
-            return deferred.reject();
+            return deferred.resolve(stub[index]);
         }, 100);
         return deferred.promise;
     }
@@ -71,13 +72,24 @@ function taskService($q, $timeout) {
         return deferred.promise;
     }
 
-    function remove(task) {
-        console.log('Removing task', task);
+    function remove(id) {
+        console.log('Removing task with id', id);
         var deferred = $q.defer();
+        var index = getTaskIndex(id);
         $timeout(function () {
-            stub.splice(stub.indexOf(task), 1);
+            stub.splice(index, 1);
             deferred.resolve();
         }, 100);
         return deferred.promise;
+    }
+
+    function getTaskIndex(id) {
+        for (var index = 0; index < stub.length; ++index) {
+            var task = stub[index];
+            if (id === task.id) {
+                return index;
+            }
+        }
+        return undefined;
     }
 }

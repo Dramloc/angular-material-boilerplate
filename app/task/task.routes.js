@@ -7,21 +7,43 @@ function routeConfiguration($stateProvider) {
         .state('task', {
             url: '/tasks',
             abstract: true,
-            template: '<ui-view layout flex/>'
+            templateUrl: 'task/task.html'
         })
         .state('task.list', {
             url: '',
-            templateUrl: 'task/task.list.html',
-            controller: 'TaskListController as vm'
+            views: {
+                content: {
+                    templateUrl: 'task/task.list.content.html',
+                    controller: 'TaskListContentController as vm'
+                },
+                fab: {
+                    templateUrl: 'task/task.list.fab.html'
+                }
+            }
         })
         .state('task.edit', {
             url: '/{id:int}',
-            templateUrl: 'task/task.edit.html',
-            controller: 'TaskEditController as vm'
+            views: {
+                content: {
+                    templateUrl: 'task/task.edit.content.html',
+                    controller: 'TaskEditContentController as vm'
+                },
+                toolbar: {
+                    templateUrl: 'task/task.edit.toolbar.html',
+                    controller: 'TaskEditToolbarController as vm'
+                }
+            }
         })
         .state('task.create', {
             url: '/create',
-            templateUrl: 'task/task.create.html',
-            controller: 'TaskCreateController as vm'
+            views: {
+                content: {
+                    templateUrl: 'task/task.create.content.html',
+                    controller: 'TaskCreateContentController as vm'
+                },
+                toolbar: {
+                    templateUrl: 'task/task.create.toolbar.html'
+                }
+            }
         });
 }

@@ -1,0 +1,13 @@
+<md-list ng-if="vm.tasks.length > 0" flex>
+    <div ng-repeat="task in vm.tasks track by task.id">
+        <md-list-item class="md-3-line" ng-click="vm.edit(task)">
+            <div class="md-list-item-text">
+                <h3>{{task.name}}</h3>
+                <p>{{task.description}}</p>
+            </div>
+            <md-checkbox class="md-secondary" ng-model="task.done"></md-checkbox>
+        </md-list-item>
+        <md-divider ng-show="!$last"></md-divider>
+    </div>
+</md-list>
+<p ng-if="vm.tasks.length === 0" translate="task.list.empty"></p>

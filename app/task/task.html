@@ -1,4 +1,4 @@
-<div ng-controller="LayoutController as layoutController" layout flex>
+<div ng-controller="LayoutController as vm" layout flex>
     <md-sidenav md-component-id="sidebar" class="md-sidenav-left" md-whiteframe="16" md-is-locked-open="$mdMedia('gt-md')">
         <md-toolbar class="md-tall">
             <span flex></span>
@@ -9,7 +9,7 @@
             </div>
         </md-toolbar>
         <md-menu-content>
-            <md-menu-item ng-repeat="menuItem in layoutController.menuItems" ui-sref="{{menuItem.state}}" ng-click="layoutController.closeSidenav()">
+            <md-menu-item ng-repeat="menuItem in vm.menuItems" ui-sref="{{menuItem.state}}" ng-click="vm.closeSidenav()">
                 <md-button>
                     <md-icon md-font-library="material-icons">{{menuItem.icon}}</md-icon>
                     {{menuItem.name | translate}}
@@ -21,25 +21,24 @@
     <div layout="column" flex>
         <md-toolbar md-whiteframe="4">
             <div class="md-toolbar-tools">
-                <md-button class="md-icon-button" hide-gt-md aria-label="{{'layout.menu' | translate}}" ng-click="layoutController.handleBackMenuClick('task.list')">
-                    <div class="back-menu" ng-class="{'toggled': !layoutController.isMenuAvailable()}">
+                <md-button class="md-icon-button" hide-gt-md aria-label="{{'layout.menu' | translate}}" ng-click="vm.handleBackMenuClick('task.list')">
+                    <div class="back-menu" ng-class="{'toggled': !vm.isMenuAvailable()}">
                         <div class="bar top"></div>
                         <div class="bar middle"></div>
                         <div class="bar bottom"></div>
                     </div>
                 </md-button>
-                <md-button class="md-icon-button" ng-show="!layoutController.isMenuAvailable()" hide show-gt-md ng-click="layoutController.handleBackMenuClick('task.list')"
+                <md-button class="md-icon-button" ng-show="!vm.isMenuAvailable()" hide show-gt-md ng-click="vm.handleBackMenuClick('task.list')"
                     aria-label="{{'layout.menu' | translate}}">
                     <md-icon md-font-library="material-icons">arrow_back</md-icon>
                 </md-button>
                 <span flex></span>
-                <div ng-transclude="toolbar"></div>
+                <div ui-view="toolbar"></div>
             </div>
         </md-toolbar>
 
-        <md-content ng-transclude="content" layout flex>
-        </md-content>
+        <md-content ui-view="content" layout flex></md-content>
 
-        <div ng-transclude="fab"></div>
+        <div ui-view="fab"></div>
     </div>
 </div>

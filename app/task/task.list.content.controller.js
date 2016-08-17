@@ -1,8 +1,8 @@
 angular.module('app.task')
-    .controller('TaskListController', TaskListController);
+    .controller('TaskListContentController', TaskListContentController);
 
 /*@ngInject*/
-function TaskListController($state, taskService) {
+function TaskListContentController($state, taskService) {
     var vm = this;
     vm.tasks = undefined;
     vm.edit = edit;
@@ -11,7 +11,7 @@ function TaskListController($state, taskService) {
 
     function activate() {
         return getTasks().then(function () {
-            console.info('TaskListController activated.');
+            console.log('TaskListContentController activated.');
         });
     }
 
