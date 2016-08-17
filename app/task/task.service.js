@@ -26,13 +26,13 @@ function taskService($q, $timeout) {
         getTasks: getTasks,
         save: save,
         update: update,
-        remove: remove
+        remove: remove,
+        search: search
     };
 
     return service;
 
     function getTask(id) {
-        console.log('Searching task with id', id);
         var deferred = $q.defer();
         $timeout(function () {
             var index = getTaskIndex(id);
@@ -56,7 +56,6 @@ function taskService($q, $timeout) {
         var deferred = $q.defer();
         $timeout(function () {
             task.id = ++stubIndex;
-            console.log('Saving task', task);
             stub.push(task);
             deferred.resolve();
         }, 100);
@@ -64,7 +63,6 @@ function taskService($q, $timeout) {
     }
 
     function update(task) {
-        console.log('Updating task', task);
         var deferred = $q.defer();
         $timeout(function () {
             deferred.resolve();
@@ -73,13 +71,28 @@ function taskService($q, $timeout) {
     }
 
     function remove(id) {
-        console.log('Removing task with id', id);
         var deferred = $q.defer();
         var index = getTaskIndex(id);
         $timeout(function () {
             stub.splice(index, 1);
             deferred.resolve();
         }, 100);
+        return deferred.promise;
+    }
+
+    function search(searchText) {
+        var deferred = $q.defer();
+        $timeout(function () {
+            searchText = searchText.toLocaleLowerCase();
+            var tasks = [];
+            for (var index = 0; index < stub.length; ++index) {
+                var task = stub[index];
+                if (task.name.toLocaleLowerCase().indexOf(searchText) > -1) {
+                    tasks.push(task);
+                }
+            }
+            return deferred.resolve(tasks);
+        }, 300);
         return deferred.promise;
     }
 

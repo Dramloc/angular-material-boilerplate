@@ -16,6 +16,10 @@ function routeConfiguration($stateProvider) {
                     templateUrl: 'task/task.list.content.html',
                     controller: 'TaskListContentController as vm'
                 },
+                toolbar: {
+                    templateUrl: 'task/task.list.toolbar.html',
+                    controller: 'TaskListToolbarController as vm'
+                },
                 fab: {
                     templateUrl: 'task/task.list.fab.html'
                 }

@@ -2,7 +2,7 @@ angular.module('app.task')
     .controller('TaskCreateContentController', TaskCreateContentController);
 
 /*@ngInject*/
-function TaskCreateContentController($state, $mdToast, $translate, taskService) {
+function TaskCreateContentController($state, taskService) {
     var vm = this;
     vm.task = {
         name: '',

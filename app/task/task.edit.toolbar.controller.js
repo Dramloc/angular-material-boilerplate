@@ -2,7 +2,7 @@ angular.module('app.task')
     .controller('TaskEditToolbarController', TaskEditToolbarController);
 
 /*@ngInject*/
-function TaskEditToolbarController($state, $stateParams, $mdToast, $translate, taskService) {
+function TaskEditToolbarController($state, $stateParams, taskService) {
     var vm = this;
     var id = $stateParams.id;
     vm.remove = remove;
