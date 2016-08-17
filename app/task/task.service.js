@@ -3,28 +3,21 @@ angular.module('app.task')
 
 /*@ngInject*/
 function taskService($q, $timeout) {
+    var stubIndex = 0;
     var stub = [{
-        id: 1,
-        name: "Foo",
-        description: "Bar"
+        id: ++stubIndex,
+        name: "learn angular",
+        description: "first things first"
     }, {
-        id: 2,
-        name: "Foo",
-        description: "Bar"
+        id: ++stubIndex,
+        name: "learn angular material",
+        description: "with great design comes great responsibilities"
     }, {
-        id: 3,
-        name: "Foo",
-        description: "Bar"
-    }, {
-        id: 4,
-        name: "Foo",
-        description: "Bar"
-    }, {
-        id: 5,
-        name: "Foo",
-        description: "Bar"
+        id: ++stubIndex,
+        name: "build boilerplate",
+        description: "put it all together"
     }];
-    var stubIndex = 5;
+    
     var service = {
         getTask: getTask,
         getTasks: getTasks,
