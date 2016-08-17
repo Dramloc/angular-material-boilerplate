@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "author": "Antoine Colmard <a.colmard@gmail.com>",
   "license": "MIT",
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dramloc/angular-material-boilerplate.git"
+  },
   "keywords": [
     "boilerplate",
     "angular-material",
