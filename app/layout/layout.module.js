@@ -1,3 +1,4 @@
 angular.module('app.layout', [
-    'ngMaterial'
+    'ngMaterial',
+    'app.menu'
 ]);

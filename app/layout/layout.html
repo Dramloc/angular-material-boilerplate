@@ -21,14 +21,14 @@
     <div layout="column" flex>
         <md-toolbar md-whiteframe="4">
             <div class="md-toolbar-tools">
-                <md-button class="md-icon-button" hide-gt-md aria-label="{{'layout.menu' | translate}}" ng-click="vm.handleBackMenuClick('task.list')">
+                <md-button class="md-icon-button" hide-gt-md aria-label="{{'layout.menu' | translate}}" ng-click="vm.handleBackMenuClick()">
                     <div class="back-menu" ng-class="{'toggled': !vm.isMenuAvailable()}">
                         <div class="bar top"></div>
                         <div class="bar middle"></div>
                         <div class="bar bottom"></div>
                     </div>
                 </md-button>
-                <md-button class="md-icon-button" ng-show="!vm.isMenuAvailable()" hide show-gt-md ng-click="vm.handleBackMenuClick('task.list')"
+                <md-button class="md-icon-button" ng-show="!vm.isMenuAvailable()" hide show-gt-md ng-click="vm.handleBackMenuClick()"
                     aria-label="{{'layout.menu' | translate}}">
                     <md-icon md-font-library="material-icons">arrow_back</md-icon>
                 </md-button>

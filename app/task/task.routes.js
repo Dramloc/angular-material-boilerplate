@@ -27,6 +27,7 @@ function routeConfiguration($stateProvider) {
         })
         .state('task.edit', {
             url: '/{id:int}',
+            back: 'task.list',
             views: {
                 content: {
                     templateUrl: 'task/task.edit.content.html',
@@ -40,6 +41,7 @@ function routeConfiguration($stateProvider) {
         })
         .state('task.create', {
             url: '/create',
+            back: 'task.list',
             views: {
                 content: {
                     templateUrl: 'task/task.create.content.html',

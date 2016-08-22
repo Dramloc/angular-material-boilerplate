@@ -2,20 +2,21 @@ angular.module('app.layout')
     .controller('LayoutController', LayoutController);
 
 /*@ngInject*/
-function LayoutController($mdSidenav, $state) {
+function LayoutController($mdSidenav, $state, menuService) {
     var vm = this;
-    vm.handleBackMenuClick = handleBackMenuClick;
+    vm.isMenuAvailable = menuService.isMenuAvailable;
     vm.closeSidenav = closeSidenav;
-    vm.isMenuAvailable = isMenuAvailable;
-    vm.menuItems = [{
-        name: 'menu.tasks',
-        state: 'task.list',
-        icon: 'list'
-    }];
+    vm.handleBackMenuClick = handleBackMenuClick;
+    vm.menuItems = menuService.menuItems;
 
     activate();
 
     function activate() {
+        menuService.add({
+            name: 'menu.tasks',
+            state: 'task.list',
+            icon: 'list'
+        });
         console.info('LayoutController activated.');
     }
 
@@ -24,20 +25,9 @@ function LayoutController($mdSidenav, $state) {
     }
 
     function handleBackMenuClick(state) {
-        if (isMenuAvailable()) {
-            $mdSidenav('sidebar').open();
-            return;
+        if (menuService.isMenuAvailable()) {
+            return $mdSidenav('sidebar').open();
         }
-        $state.go(state);
-    }
-
-    function isMenuAvailable() {
-        for (var index = 0, length = vm.menuItems.length; index < length; ++index) {
-            var menuItem = vm.menuItems[index];
-            if ($state.current.name === menuItem.state) {
-                return true;
-            }
-        }
-        return false;
+        $state.go($state.$current.back);
     }
 }
