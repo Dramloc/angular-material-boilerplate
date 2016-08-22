@@ -4,12 +4,13 @@ angular.module('app.task')
 /*@ngInject*/
 function taskService($q, $timeout) {
     var stubIndex = 0;
-    var stub = [{
-        id: ++stubIndex,
-        name: "learn angular",
-        description: "first things first",
-        done: true
-    }, {
+    var stub = [
+        {
+            id: ++stubIndex,
+            name: "learn angular",
+            description: "first things first",
+            done: true
+        }, {
             id: ++stubIndex,
             name: "learn angular material",
             description: "with great power comes great design",
@@ -19,7 +20,8 @@ function taskService($q, $timeout) {
             name: "build boilerplate",
             description: "put it all together",
             done: false
-        }];
+        }
+    ];
 
     var service = {
         getTask: getTask,
