@@ -1,4 +1,4 @@
-<md-list ng-if="vm.tasks.length > 0" flex>
+<md-list ng-if="vm.tasks.length > 0" flex class="tasks">
     <div ng-repeat="task in vm.tasks track by task.id">
         <md-list-item class="md-3-line" ng-click="vm.edit(task)">
             <div class="md-list-item-text">
