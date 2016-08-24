@@ -10,4 +10,6 @@
         <md-divider ng-show="!$last"></md-divider>
     </div>
 </md-list>
-<p ng-if="vm.tasks.length === 0" translate="task.list.empty"></p>
+<div ng-if="vm.tasks.length === 0" flex layout layout-align="center center" class="no-tasks">
+    <span translate="task.list.empty"></span>
+</div>
