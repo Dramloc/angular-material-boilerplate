@@ -7,6 +7,6 @@
         <span md-highlight-text="vm.searchText" md-highlight-flags="^i">{{task.name}}</span>
     </md-item-template>
     <md-not-found>
-        No task matching "{{vm.searchText}}" were found.
+        <span translate="task.no.match" translate-values="{searchText: '{{vm.searchText}}'}"></span>
     </md-not-found>
 </md-autocomplete>
