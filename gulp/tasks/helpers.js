@@ -1,18 +1,16 @@
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
-var config = require('../config');
+const gulp = require('gulp');
+const $ = require('gulp-load-plugins')();
+const config = require('../config');
 
-gulp.task('watch', ['scripts:watch', 'sass:watch', 'templates:watch', 'views:watch']);
-gulp.task('build', ['browserify:build', 'scripts:build', 'sass:build', 'templates:build', 'views:build']);
-gulp.task('lint', ['scripts:lint']);
-gulp.task('clean', ['browserify:clean', 'scripts:clean', 'sass:clean', 'templates:clean']);
+gulp.task('watch', ['watch:scripts', 'watch:sass', 'watch:html']);
+gulp.task('build', $.sequence('clean', ['build:sass', 'build:scripts'], 'build:html'));
 
-gulp.task('serve', config.production ? ['build'] : ['build', 'watch'], function () {
-    $.connect.server({
-        root: config.serve.root,
-        livereload: !config.production,
-        port: config.serve.port
-    });
+gulp.task('serve', ['build', 'watch'], () => {
+  $.connect.server({
+    root: config.dist,
+    livereload: !config.production,
+    port: config.port
+  });
 });
 
-gulp.task('default', ['serve']);
+gulp.task('default', ['build']);

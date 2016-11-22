@@ -1,0 +1,42 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important; }
+
+md-sidenav md-toolbar .user-profile {
+  font-size: small; }
+  md-sidenav md-toolbar .user-profile .user-email {
+    opacity: 0.8; }
+
+.back-menu {
+  margin: 2px; }
+  .back-menu .bar {
+    background-color: white;
+    transition: transform 300ms ease-out; }
+    .back-menu .bar.top {
+      height: 2px;
+      width: 18px;
+      transform-origin: 0px 8px; }
+    .back-menu .bar.middle {
+      height: 2px;
+      width: 18px;
+      margin-top: 3px;
+      margin-bottom: 3px; }
+    .back-menu .bar.bottom {
+      height: 2px;
+      width: 18px;
+      transform-origin: 0px -8px; }
+  .back-menu.toggled .bar {
+    transition: transform 300ms ease-in; }
+    .back-menu.toggled .bar.top {
+      transform: rotate(225deg) translate(-11px, 10px) scale(0.66, 1); }
+    .back-menu.toggled .bar.middle {
+      transform: rotate(180deg) scale(0.77, 1); }
+    .back-menu.toggled .bar.bottom {
+      transform: rotate(135deg) translate(-10px, -13px) scale(0.66, 1); }
+
+.tasks md-list-item .md-list-item-text p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+.no-tasks span {
+  color: rgba(0, 0, 0, 0.38); }

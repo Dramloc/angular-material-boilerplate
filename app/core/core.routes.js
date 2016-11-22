@@ -1,7 +1,6 @@
-angular.module('app.core')
-    .config(routeConfiguration);
-
 /*@ngInject*/
-function routeConfiguration($urlRouterProvider) {
-    $urlRouterProvider.otherwise('/tasks');
+function routes($urlRouterProvider) {
+  $urlRouterProvider.otherwise('/tasks');
 }
+
+module.exports = routes;

@@ -1,21 +1,17 @@
 .tasks {
-    md-list-item {
-        ._md-list-item-inner {
-            max-width: calc(100% - 40px);
-        }
-
-        .md-list-item-text {
-            p {
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-            }
-        }
+  md-list-item {
+    .md-list-item-text {
+      p {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
     }
+  }
 }
 
 .no-tasks {
-    span {
-        color: rgba(0, 0, 0, 0.38);
-    }
+  span {
+    color: rgba(0, 0, 0, 0.38);
+  }
 }

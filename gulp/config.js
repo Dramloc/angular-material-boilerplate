@@ -1,36 +1,22 @@
-var package = require('../package.json');
-var $ = require('gulp-load-plugins')();
+const package = require('../package.json');
+const $ = require('gulp-load-plugins')();
 
 module.exports = {
-    scripts: {
-        sources: './app/**/*.js',
-        destination: './public/dist',
-        destinationName: package.name + '.js',
-        header: '(function () {\n\'use strict\';\n',
-        footer: '\n})();'
-    },
-    templates: {
-        sources: './app/**/*.html',
-        destination: './public/dist',
-        destinationName: 'templates.js',
-        destinationModule: 'templates'
-    },
-    views: {
-        sources: './public/index.html'
-    },
-    sass: {
-        sources: './app/**/*.scss',
-        destination: './public/dist',
-        destinationName: package.name + '.css'
-    },
-    browserify: {
-        sources: './app.js',
-        destination: './public/dist',
-        destinationName: 'bundle.js'
-    },
-    serve: {
-        root: './public',
-        port: process.env.PORT || 3000
-    },
-    production: 'production' === process.env.NODE_ENV
+  scripts: {
+    sources: './app/index.js',
+    destinationName: package.name
+  },
+  sass: {
+    sources: './app/**/*.scss',
+    destinationName: package.name
+  },
+  html: {
+    sources: './app/index.html',
+  },
+  vendors: [{
+    cdn: '//cdnjs.cloudflare.com/ajax/libs/angularjs/1.5.8/angular.min.js'
+  }],
+  port: process.env.PORT || 3000,
+  dist: 'dist',
+  production: $.util.env.production !== undefined || $.util.env.prod !== undefined || process.env.NODE_ENV === 'production'
 };

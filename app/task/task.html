@@ -1,0 +1,12 @@
+<div class="md-padding" flex>
+  <form id="taskForm" ng-submit="$ctrl.saveOrUpdate($ctrl.task)">
+    <md-input-container class="md-block">
+      <label>{{ 'task.name' | translate }}</label>
+      <input name="name" ng-model="$ctrl.task.name" required aria-label="{{ 'task.name' | translate }}" />
+    </md-input-container>
+    <md-input-container class="md-block">
+      <label>{{ 'task.description' | translate }}</label>
+      <textarea name="description" ng-model="$ctrl.task.description" aria-label="{{ 'task.description' | translate }}"></textarea>
+    </md-input-container>
+  </form>
+</div>

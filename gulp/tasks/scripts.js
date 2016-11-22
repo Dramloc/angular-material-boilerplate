@@ -1,37 +1,41 @@
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
-var config = require('../config');
-var package = require('../../package.json');
+const browserify = require('browserify');
+const watchify = require('watchify');
+const gulp = require('gulp');
+const $ = require('gulp-load-plugins')();
+const config = require('../config');
+const source = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
 
-gulp.task('scripts:clean', function () {
-    return gulp.src([
-        config.scripts.destination + '/' + config.scripts.destinationName,
-        config.scripts.destination + '/' + config.scripts.destinationName + '.map'
-    ], { read: false }).pipe($.clean());
-});
+const options = {
+  entries: config.scripts.sources,
+  bundleExternal: false,
+  transform: [
+    require('browserify-ngannotate'),
+    require('browserify-ng-html2js'),
+    require('browserify-shim')
+  ]
+};
 
-gulp.task('scripts:lint', function () {
-    return gulp.src(config.scripts.sources)
-        .pipe($.eslint())
-        .pipe($.eslint.format())
-        .pipe($.eslint.failAfterError());
-});
+let bundler = browserify(options);
 
-gulp.task('scripts:build', ['scripts:lint', 'scripts:clean'], function () {
-    return gulp.src(config.scripts.sources)
-        .pipe(config.production ? $.util.noop() : $.sourcemaps.init())
-        .pipe($.plumber())
-        .pipe($.header(config.scripts.header, package))
-        .pipe($.footer(config.scripts.footer, package))
-        .pipe($.ngAnnotate())
-        .pipe($.angularFilesort())
-        .pipe($.concat(config.scripts.destinationName))
-        .pipe(config.production ? $.uglify() : $.util.noop())
-        .pipe(config.production ? $.util.noop() : $.sourcemaps.write('.'))
-        .pipe(gulp.dest(config.scripts.destination))
-        .pipe($.connect.reload());
-});
+function bundle() {
+  return bundler.bundle()
+    .pipe($.plumber())
+    .pipe(source(`${config.scripts.destinationName}.js`))
+    .pipe(buffer())
+    .pipe(gulp.dest(config.dist))
+    .pipe(config.production ? $.sourcemaps.init({ loadMaps: true }) : $.util.noop())
+    .pipe(config.production ? $.uglify() : $.util.noop())
+    .pipe(config.production ? $.rename({ extname: '.min.js' }) : $.util.noop())
+    .pipe(config.production ? $.rev() : $.util.noop())
+    .pipe(config.production ? $.sourcemaps.write('./') : $.util.noop())
+    .pipe(config.production ? gulp.dest(config.dist) : $.util.noop())
+    .pipe($.connect.reload());
+}
 
-gulp.task('scripts:watch', ['scripts:build'], function () {
-    gulp.watch(config.scripts.sources, ['scripts:build']);
+gulp.task('build:scripts', bundle);
+
+gulp.task('watch:scripts', () => {
+  bundler = watchify(bundler);
+  bundler.on('update', bundle);
 });
