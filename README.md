@@ -9,7 +9,7 @@ This boilerplate is a WIP and is still in early development.
 
 ## Demo
 
-You can see the boilerplate in action [here](https://dramloc.github.io/angular-material-boilerplate/dist/).
+You can see the boilerplate in action [here](https://dramloc.github.io/angular-material-boilerplate/).
 
 ## Installation
 
