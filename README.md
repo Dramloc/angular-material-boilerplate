@@ -1,7 +1,7 @@
 # Angular Material boilerplate
 
-[![David](https://img.shields.io/david/Dramloc/angular-material-boilerplate.svg?maxAge=2592000&style=flat-square)]()
-[![David](https://img.shields.io/david/dev/Dramloc/angular-material-boilerplate.svg?maxAge=2592000&style=flat-square)]()
+[![David](https://img.shields.io/david/Dramloc/angular-material-boilerplate.svg)]()
+[![David](https://img.shields.io/david/dev/Dramloc/angular-material-boilerplate.svg)]()
 
 Boilerplate client based on [AngularJS](https://angularjs.org/) and [Angular Material](https://material.angularjs.org).
 
