@@ -8,11 +8,10 @@ const buffer = require('vinyl-buffer');
 
 const options = {
   entries: config.scripts.sources,
-  bundleExternal: false,
   transform: [
     require('browserify-ngannotate'),
     require('browserify-ng-html2js'),
-    require('browserify-shim')
+    require('browserify-css')
   ]
 };
 
