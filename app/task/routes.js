@@ -5,7 +5,7 @@ function routes($stateProvider) {
       url: '/tasks',
       views: {
         content: {
-          template: '<tasks flex layout/>',
+          template: '<task-list flex layout/>',
         },
         toolbar: {
           template: '<task-search/>',
@@ -21,14 +21,14 @@ function routes($stateProvider) {
       resolve: {
         $ambTaskService: '$ambTaskService',
         task: ($stateParams, $ambTaskService) =>
-          $ambTaskService.getTask($stateParams.id)
+          $ambTaskService.get($stateParams.id)
             .then((task) => {
               $stateParams.task = task;
             }),
       },
       views: {
         content: {
-          template: '<task flex/>',
+          template: '<task-form flex/>',
         },
         toolbar: {
           template: '<task-actions/>',
@@ -46,7 +46,7 @@ function routes($stateProvider) {
       },
       views: {
         content: {
-          template: '<task flex/>',
+          template: '<task-form flex/>',
         },
         toolbar: {
           template: '<task-actions/>',

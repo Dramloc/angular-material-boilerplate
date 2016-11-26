@@ -1,0 +1,9 @@
+<md-button class="md-icon-button" aria-label="{{ 'save' | translate }}" type="submit" form="taskForm" ng-if="undefined === $ctrl.task.id">
+	<md-icon md-font-library="material-icons">save</md-icon>
+</md-button>
+<md-button class="md-icon-button" aria-label="{{ 'delete' | translate }}" ng-click="$ctrl.delete($ctrl.task)" ng-if="undefined !== $ctrl.task.id">
+	<md-icon md-font-library="material-icons">delete</md-icon>
+</md-button>
+<md-button class="md-icon-button" aria-label="{{ 'update' | translate }}" type="submit" form="taskForm" ng-if="undefined !== $ctrl.task.id">
+	<md-icon md-font-library="material-icons">check</md-icon>
+</md-button>

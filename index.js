@@ -1,14 +1,13 @@
-const express = require('express');
-const morgan = require('morgan');
-const compression = require('compression');
+const app = require('./lib/index');
+const logger = require('winston');
 
-const app = express();
+logger.info('server process starting');
 
-app.use(compression());
-app.use(morgan('dev'));
-app.use(express.static('dist', {
-  maxAge: 31536000000,
-}));
-
-const port = process.env.PORT || 3000;
-app.listen(port);
+const port = process.env.PORT || 80;
+app.listen(port, (error) => {
+  if (error) {
+    logger.error('Unable to listen for connections', error);
+    process.exit(10);
+  }
+  logger.info(`express is listening on http://localhost:${port}`);
+});

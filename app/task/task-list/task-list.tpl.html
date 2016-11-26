@@ -1,0 +1,15 @@
+<md-list ng-if="$ctrl.tasks.length > 0" flex class="task-list">
+  <div ng-repeat="task in $ctrl.tasks track by task.id">
+    <md-list-item class="md-3-line" ng-click="$ctrl.edit(task)">
+      <md-checkbox ng-model="task.done"></md-checkbox>
+      <div class="md-list-item-text">
+        <h3>{{task.name}}</h3>
+        <p>{{task.description}}</p>
+      </div>
+    </md-list-item>
+    <md-divider ng-show="!$last"></md-divider>
+  </div>
+</md-list>
+<div ng-if="$ctrl.tasks.length === 0" flex layout layout-align="center center" class="no-tasks">
+  <span translate="task.list.empty"></span>
+</div>
