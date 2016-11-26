@@ -18,18 +18,24 @@ const options = {
 let bundler = browserify(options);
 
 function bundle() {
-  return bundler.bundle()
+  const stream = bundler.bundle()
     .pipe($.plumber())
     .pipe(source(`${config.scripts.destinationName}.js`))
     .pipe(buffer())
     .pipe(gulp.dest(config.dist))
-    .pipe(config.production ? $.sourcemaps.init({ loadMaps: true }) : $.util.noop())
-    .pipe(config.production ? $.uglify() : $.util.noop())
-    .pipe(config.production ? $.rename({ extname: '.min.js' }) : $.util.noop())
-    .pipe(config.production ? $.rev() : $.util.noop())
-    .pipe(config.production ? $.sourcemaps.write('./') : $.util.noop())
-    .pipe(config.production ? gulp.dest(config.dist) : $.util.noop())
-    .pipe($.connect.reload());
+
+  if (config.production) {
+    stream.pipe($.sourcemaps.init({ loadMaps: true }))
+      .pipe($.uglify())
+      .pipe($.rename({ extname: '.min.js' }))
+      .pipe($.rev())
+      .pipe($.sourcemaps.write('./'))
+      .pipe(gulp.dest(config.dist))
+  }
+
+  stream.pipe($.connect.reload());
+
+  return stream;
 }
 
 gulp.task('build:scripts', bundle);
