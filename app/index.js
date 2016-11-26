@@ -1,5 +1,10 @@
-module.exports = require('angular').module('app', [
-  require('./core'),
-  require('./layout'),
-  require('./task')
+import angular from 'angular';
+import core from './core';
+import layout from './layout';
+import task from './task';
+
+export default angular.module('app', [
+  core,
+  layout,
+  task,
 ]).name;

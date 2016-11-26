@@ -6,31 +6,33 @@ const config = require('../config');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 
-const options = {
-  entries: config.scripts.sources,
-  transform: [
-    require('browserify-ngannotate'),
-    require('browserify-ng-html2js'),
-    require('browserify-css')
-  ]
-};
-
-let bundler = browserify(options);
+let bundler = browserify(config.scripts.sources)
+  .transform('babelify', { presets: ['es2015'] })
+  .transform('stringify', {
+    appliesTo: { includeExtensions: ['.html'] },
+  })
+  .transform('browserify-ngannotate')
+  .transform('browserify-css');
 
 function bundle() {
   const stream = bundler.bundle()
     .pipe($.plumber())
     .pipe(source(`${config.scripts.destinationName}.js`))
     .pipe(buffer())
-    .pipe(gulp.dest(config.dist))
+    .pipe(gulp.dest(config.dist));
 
   if (config.production) {
-    stream.pipe($.sourcemaps.init({ loadMaps: true }))
+    stream
+      .pipe($.sourcemaps.init({
+        loadMaps: true,
+      }))
       .pipe($.uglify())
-      .pipe($.rename({ extname: '.min.js' }))
+      .pipe($.rename({
+        extname: '.min.js',
+      }))
       .pipe($.rev())
       .pipe($.sourcemaps.write('./'))
-      .pipe(gulp.dest(config.dist))
+      .pipe(gulp.dest(config.dist));
   }
 
   stream.pipe($.connect.reload());

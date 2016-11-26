@@ -1,12 +1,14 @@
+import angular from 'angular';
+import angularMaterial from 'angular-material';
+
+import LayoutComponent from './layout.component';
+import theme from './theme';
+
 require('./dependencies.css');
 
-module.exports = require('angular').module('app.layout', [
-  require('angular-material'),
-  require('./layout.html')
+export default angular.module('app.layout', [
+  angularMaterial,
 ])
-  .component('ambLayout', {
-    templateUrl: 'layout.html',
-    controller: require('./layout.controller')
-  })
-  .config(require('./layout.theme'))
+  .component(LayoutComponent.selector, LayoutComponent)
+  .config(theme)
   .name;

@@ -7,15 +7,19 @@ gulp.task('build:sass', () => {
     .pipe($.plumber())
     .pipe($.sass().on('error', $.sass.logError))
     .pipe($.concat(`${config.sass.destinationName}.css`))
-    .pipe(gulp.dest(config.dist))
+    .pipe(gulp.dest(config.dist));
 
   if (config.production) {
-    stream.pipe($.sourcemaps.init({ loadMaps: true }))
+    stream.pipe($.sourcemaps.init({
+      loadMaps: true,
+    }))
       .pipe($.cleanCss())
-      .pipe($.rename({ extname: '.min.css' }))
+      .pipe($.rename({
+        extname: '.min.css',
+      }))
       .pipe($.rev())
       .pipe($.sourcemaps.write('.'))
-      .pipe(gulp.dest(config.dist))
+      .pipe(gulp.dest(config.dist));
   }
 
   stream.pipe($.connect.reload());

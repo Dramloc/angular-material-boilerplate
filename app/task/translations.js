@@ -1,4 +1,4 @@
-/*@ngInject*/
+/* @ngInject */
 function translations($translateProvider) {
   $translateProvider.translations('en', {
     'menu.tasks': 'Tasks',
@@ -6,8 +6,8 @@ function translations($translateProvider) {
     'task.description': 'Description',
     'task.list.empty': 'You have no saved task',
     'task.not.found': 'Task not found',
-    'task.no.match': 'No task matching "{{searchText}}" was found'
+    'task.no.match': 'No task matching "{{searchText}}" was found',
   });
 }
 
-module.exports = translations;
+export default translations;
