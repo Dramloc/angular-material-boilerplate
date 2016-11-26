@@ -1,14 +1,14 @@
 /*@ngInject*/
 function LayoutController($mdSidenav, $state, $log) {
   var vm = this;
+  vm.menuItems = [];
+
+  vm.$onInit = $onInit;
   vm.closeSidenav = closeSidenav;
   vm.handleBackMenuClick = handleBackMenuClick;
-  vm.menuItems = [];
   vm.isMenuAvailable = isMenuAvailable;
 
-  activate();
-
-  function activate() {
+  function $onInit() {
     vm.menuItems.push({
       name: 'menu.tasks',
       state: 'taskList',
