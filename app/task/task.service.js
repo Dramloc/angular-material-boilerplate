@@ -1,10 +1,9 @@
 class $ambTaskService {
 
   /* @ngInject */
-  constructor($q, $resource) {
+  constructor($q, $resource, $configuration) {
     Object.assign(this, { $q });
-    const url = 'http://localhost/api';
-    this.Task = $resource(`${url}/tasks/:id`, null, {
+    this.Task = $resource(`${$configuration.url}/tasks/:id`, null, {
       create: { method: 'POST' },
       update: { method: 'PUT' },
     });
