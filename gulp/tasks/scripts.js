@@ -5,6 +5,7 @@ const $ = require('gulp-load-plugins')();
 const config = require('../config');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
+const es = require('event-stream');
 
 let bundler = browserify(config.scripts.sources)
   .transform('babelify', { presets: ['es2015'] })
@@ -16,14 +17,14 @@ let bundler = browserify(config.scripts.sources)
   .transform('browserify-css');
 
 function bundle() {
-  const stream = bundler.bundle()
+  let stream = bundler.bundle()
     .pipe($.plumber())
     .pipe(source(`${config.scripts.destinationName}.js`))
     .pipe(buffer())
     .pipe(gulp.dest(config.dist));
 
   if (config.production) {
-    stream
+    const minify = stream
       .pipe($.sourcemaps.init({
         loadMaps: true,
       }))
@@ -34,6 +35,7 @@ function bundle() {
       .pipe($.rev())
       .pipe($.sourcemaps.write('./'))
       .pipe(gulp.dest(config.dist));
+    stream = es.concat(minify, stream);
   }
 
   stream.pipe($.connect.reload());

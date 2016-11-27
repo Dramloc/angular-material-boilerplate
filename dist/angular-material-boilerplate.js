@@ -212,7 +212,7 @@ exports.default = {
 };
 
 },{"./layout.tpl.html":9}],9:[function(require,module,exports){
-module.exports = "<div layout flex>\r\n  <md-sidenav md-component-id=\"sidebar\" class=\"md-sidenav-left\" md-whiteframe=\"16\" md-is-locked-open=\"$mdMedia('gt-sm')\">\r\n    <md-toolbar class=\"md-tall\">\r\n      <span flex></span>\r\n      <div layout=\"column\" class=\"user-profile inset\">\r\n        <span class=\"user-name\">Firstname Lastname</span>\r\n        <span class=\"user-email\">email@domainname.com</span>\r\n      </div>\r\n    </md-toolbar>\r\n    <md-menu-content>\r\n      <md-menu-item ng-repeat=\"menuItem in $ctrl.menuItems\" ui-sref=\"{{menuItem.state}}\" ng-click=\"$ctrl.closeSidenav()\">\r\n        <md-button>\r\n          <md-icon md-font-library=\"material-icons\">{{menuItem.icon}}</md-icon>\r\n          {{menuItem.name | translate}}\r\n        </md-button>\r\n      </md-menu-item>\r\n    </md-menu-content>\r\n  </md-sidenav>\r\n  <div layout=\"column\" flex>\r\n    <md-toolbar md-whiteframe=\"4\">\r\n      <div class=\"md-toolbar-tools\">\r\n        <md-button class=\"md-icon-button\" hide-gt-sm aria-label=\"{{'layout.menu' | translate}}\" ng-click=\"$ctrl.handleBackMenuClick()\">\r\n          <div class=\"back-menu\" ng-class=\"{'toggled': !$ctrl.isMenuAvailable()}\">\r\n            <div class=\"bar top\"></div>\r\n            <div class=\"bar middle\"></div>\r\n            <div class=\"bar bottom\"></div>\r\n          </div>\r\n        </md-button>\r\n        <md-button class=\"md-icon-button\" ng-show=\"!$ctrl.isMenuAvailable()\" hide show-gt-sm ng-click=\"$ctrl.handleBackMenuClick()\"\r\n          aria-label=\"{{'layout.menu' | translate}}\">\r\n          <md-icon md-font-library=\"material-icons\">arrow_back</md-icon>\r\n        </md-button>\r\n        <span flex></span>\r\n        <div ui-view=\"toolbar\" layout flex layout-align=\"end center\"></div>\r\n      </div>\r\n    </md-toolbar>\r\n    <md-content ui-view=\"content\" layout flex></md-content>\r\n    <div ui-view=\"fab\"></div>\r\n  </div>\r\n</div>";
+module.exports = "<div layout flex><md-sidenav md-component-id=sidebar class=md-sidenav-left md-whiteframe=16 md-is-locked-open=\"$mdMedia('gt-sm')\"><md-toolbar class=md-tall><span flex></span><div layout=column class=\"user-profile inset\"><span class=user-name>Firstname Lastname</span> <span class=user-email>email@domainname.com</span></div></md-toolbar><md-menu-content><md-menu-item ng-repeat=\"menuItem in $ctrl.menuItems\" ui-sref={{menuItem.state}} ng-click=$ctrl.closeSidenav()><md-button><md-icon md-font-library=material-icons>{{menuItem.icon}}</md-icon>{{menuItem.name | translate}}</md-button></md-menu-item></md-menu-content></md-sidenav><div layout=column flex><md-toolbar md-whiteframe=4><div class=md-toolbar-tools><md-button class=md-icon-button hide-gt-sm aria-label=\"{{'layout.menu' | translate}}\" ng-click=$ctrl.handleBackMenuClick()><div class=back-menu ng-class=\"{'toggled': !$ctrl.isMenuAvailable()}\"><div class=\"bar top\"></div><div class=\"bar middle\"></div><div class=\"bar bottom\"></div></div></md-button><md-button class=md-icon-button ng-show=!$ctrl.isMenuAvailable() hide show-gt-sm ng-click=$ctrl.handleBackMenuClick() aria-label=\"{{'layout.menu' | translate}}\"><md-icon md-font-library=material-icons>arrow_back</md-icon></md-button><span flex></span><div ui-view=toolbar layout flex layout-align=\"end center\"></div></div></md-toolbar><md-content ui-view=content layout flex></md-content><div ui-view=fab></div></div></div>";
 
 },{}],10:[function(require,module,exports){
 'use strict';
@@ -252,7 +252,7 @@ exports.default = {
 };
 
 },{"./loader.tpl.html":12}],12:[function(require,module,exports){
-module.exports = "<div flex layout layout-align=\"center center\" class=\"amb-loader\">\r\n  <md-progress-circular></md-progress-circular>\r\n</div>";
+module.exports = "<div flex layout layout-align=\"center center\" class=amb-loader><md-progress-circular></md-progress-circular></div>";
 
 },{}],13:[function(require,module,exports){
 'use strict';
@@ -332,7 +332,7 @@ exports.default = {
 };
 
 },{"./offline.tpl.html":15}],15:[function(require,module,exports){
-module.exports = "<div flex layout layout-align=\"center center\" class=\"amb-offline\">\r\n  <div layout=\"column\" layout-align=\"center center\">\r\n    <md-icon md-font-library=\"material-icons\" aria-label=\"{{ 'amb.offline.mode' | translate }}\">cloud_off</md-icon>\r\n    <span>{{ 'amb.offline.mode' | translate }}</span>\r\n  </div>\r\n</div>";
+module.exports = "<div flex layout layout-align=\"center center\" class=amb-offline><div layout=column layout-align=\"center center\"><md-icon md-font-library=material-icons aria-label=\"{{ 'amb.offline.mode' | translate }}\">cloud_off</md-icon><span>{{ 'amb.offline.mode' | translate }}</span></div></div>";
 
 },{}],16:[function(require,module,exports){
 'use strict';
@@ -385,7 +385,7 @@ exports.default = {
 };
 
 },{"./add-task.tpl.html":19}],19:[function(require,module,exports){
-module.exports = "<md-button class=\"md-fab md-fab-bottom-right\" aria-label=\"{{ 'task.add' | translate }}\" ui-sref=\"taskCreate\">\r\n  <md-icon md-font-library=\"material-icons\" aria-label=\"{{ 'task.add' | translate }}\">add</md-icon>\r\n</md-button>";
+module.exports = "<md-button class=\"md-fab md-fab-bottom-right\" aria-label=\"{{ 'task.add' | translate }}\" ui-sref=taskCreate><md-icon md-font-library=material-icons aria-label=\"{{ 'task.add' | translate }}\">add</md-icon></md-button>";
 
 },{}],20:[function(require,module,exports){
 'use strict';
@@ -616,7 +616,7 @@ exports.default = {
 };
 
 },{"./task-actions.tpl.html":26}],26:[function(require,module,exports){
-module.exports = "<md-button class=\"md-icon-button\" aria-label=\"{{ 'task.delete' | translate }}\" ng-click=\"$ctrl.delete($ctrl.task)\" ng-if=\"undefined !== $ctrl.task.id\">\r\n\t<md-icon md-font-library=\"material-icons\" aria-label=\"{{ 'task.delete' | translate }}\">delete</md-icon>\r\n</md-button>\r\n<md-button class=\"md-icon-button\" aria-label=\"{{ 'task.save' | translate }}\" type=\"submit\" form=\"taskForm\">\r\n\t<md-icon md-font-library=\"material-icons\" aria-label=\"{{ 'task.save' | translate }}\">check</md-icon>\r\n</md-button>";
+module.exports = "<md-button class=md-icon-button aria-label=\"{{ 'task.delete' | translate }}\" ng-click=$ctrl.delete($ctrl.task) ng-if=\"undefined !== $ctrl.task.id\"><md-icon md-font-library=material-icons aria-label=\"{{ 'task.delete' | translate }}\">delete</md-icon></md-button><md-button class=md-icon-button aria-label=\"{{ 'task.save' | translate }}\" type=submit form=taskForm><md-icon md-font-library=material-icons aria-label=\"{{ 'task.save' | translate }}\">check</md-icon></md-button>";
 
 },{}],27:[function(require,module,exports){
 'use strict';
@@ -707,7 +707,7 @@ exports.default = {
 };
 
 },{"./task-form.tpl.html":30}],30:[function(require,module,exports){
-module.exports = "<div class=\"md-padding\" flex>\r\n  <form id=\"taskForm\" ng-submit=\"$ctrl.save($ctrl.task)\">\r\n    <md-input-container class=\"md-block\">\r\n      <label>{{ 'task.name' | translate }}</label>\r\n      <input name=\"name\" ng-model=\"$ctrl.task.name\" required aria-label=\"{{ 'task.name' | translate }}\" />\r\n    </md-input-container>\r\n    <md-input-container class=\"md-block\">\r\n      <label>{{ 'task.description' | translate }}</label>\r\n      <textarea name=\"description\" ng-model=\"$ctrl.task.description\" aria-label=\"{{ 'task.description' | translate }}\"></textarea>\r\n    </md-input-container>\r\n  </form>\r\n</div>";
+module.exports = "<div class=md-padding flex><form id=taskForm ng-submit=$ctrl.save($ctrl.task)><md-input-container class=md-block><label>{{ 'task.name' | translate }}</label><input name=name ng-model=$ctrl.task.name required aria-label=\"{{ 'task.name' | translate }}\"></md-input-container><md-input-container class=md-block><label>{{ 'task.description' | translate }}</label><textarea name=description ng-model=$ctrl.task.description aria-label=\"{{ 'task.description' | translate }}\"></textarea></md-input-container></form></div>";
 
 },{}],31:[function(require,module,exports){
 'use strict';
@@ -819,7 +819,7 @@ exports.default = {
 };
 
 },{"./task-list.tpl.html":34}],34:[function(require,module,exports){
-module.exports = "<div class=\"task-list\" flex layout>\r\n  <md-list ng-if=\"$ctrl.tasks.length > 0\" flex>\r\n    <div ng-repeat=\"task in $ctrl.tasks track by task.id\">\r\n      <md-list-item class=\"md-3-line\" ng-click=\"$ctrl.edit(task)\">\r\n        <md-checkbox ng-model=\"task.done\"></md-checkbox>\r\n        <div class=\"md-list-item-text\">\r\n          <h3>{{ task.name }}</h3>\r\n          <p>{{ task.description }}</p>\r\n        </div>\r\n      </md-list-item>\r\n      <md-divider ng-show=\"!$last\"></md-divider>\r\n    </div>\r\n  </md-list>\r\n  <div ng-if=\"$ctrl.tasks.length === 0\" flex layout=\"column\" layout-align=\"center center\" class=\"empty\">\r\n    <span>{{ 'task.list.empty' | translate }}</span>\r\n  </div>\r\n  <amb-loader ng-if=\"$ctrl.loading\" flex layout></amb-loader>\r\n  <amb-offline ng-if=\"$ctrl.offline\" on-retry=\"$ctrl.activate()\" flex layout></amb-offline>\r\n</div>";
+module.exports = "<div class=task-list flex layout><md-list ng-if=\"$ctrl.tasks.length > 0\" flex><div ng-repeat=\"task in $ctrl.tasks track by task.id\"><md-list-item class=md-3-line ng-click=$ctrl.edit(task)><md-checkbox ng-model=task.done></md-checkbox><div class=md-list-item-text><h3>{{ task.name }}</h3><p>{{ task.description }}</p></div></md-list-item><md-divider ng-show=!$last></md-divider></div></md-list><div ng-if=\"$ctrl.tasks.length === 0\" flex layout=column layout-align=\"center center\" class=empty><span>{{ 'task.list.empty' | translate }}</span></div><amb-loader ng-if=$ctrl.loading flex layout></amb-loader><amb-offline ng-if=$ctrl.offline on-retry=$ctrl.activate() flex layout></amb-offline></div>";
 
 },{}],35:[function(require,module,exports){
 'use strict';
@@ -926,7 +926,7 @@ exports.default = {
 };
 
 },{"./task-search.tpl.html":38}],38:[function(require,module,exports){
-module.exports = "<div layout=\"row\">\r\n  <md-button class=\"md-icon-button\" aria-label=\"{{ 'task.search' | translate }}\" ng-click=\"$ctrl.toggleSearch()\" ng-disabled=\"$ctrl.$mdMedia('gt-md')\">\r\n    <md-icon md-font-library=\"material-icons\" aria-label=\"{{ 'task.search' | translate }}\">search</md-icon>\r\n  </md-button>\r\n  <md-autocomplete md-items=\"task in $ctrl.search($ctrl.searchText)\" placeholder=\"{{ 'task.search' | translate }}\" md-search-text=\"$ctrl.searchText\"\r\n    md-selected-item=\"$ctrl.selectedTask\" md-item-text=\"task.name\" md-selected-item-change=\"$ctrl.edit($ctrl.selectedTask)\"\r\n    ng-show=\"$ctrl.searchVisible || $ctrl.$mdMedia('gt-md')\">\r\n    <md-item-template>\r\n      <span md-highlight-text=\"$ctrl.searchText\" md-highlight-flags=\"^i\">{{task.name}}</span>\r\n    </md-item-template>\r\n    <md-not-found>\r\n      <span translate=\"task.no.match\" translate-values=\"{searchText: '{{$ctrl.searchText}}'}\"></span>\r\n    </md-not-found>\r\n  </md-autocomplete>\r\n</div>";
+module.exports = "<div layout=row><md-button class=md-icon-button aria-label=\"{{ 'task.search' | translate }}\" ng-click=$ctrl.toggleSearch() ng-disabled=\"$ctrl.$mdMedia('gt-md')\"><md-icon md-font-library=material-icons aria-label=\"{{ 'task.search' | translate }}\">search</md-icon></md-button><md-autocomplete md-items=\"task in $ctrl.search($ctrl.searchText)\" placeholder=\"{{ 'task.search' | translate }}\" md-search-text=$ctrl.searchText md-selected-item=$ctrl.selectedTask md-item-text=task.name md-selected-item-change=$ctrl.edit($ctrl.selectedTask) ng-show=\"$ctrl.searchVisible || $ctrl.$mdMedia('gt-md')\"><md-item-template><span md-highlight-text=$ctrl.searchText md-highlight-flags=^i>{{task.name}}</span></md-item-template><md-not-found><span translate=task.no.match translate-values=\"{searchText: '{{$ctrl.searchText}}'}\"></span></md-not-found></md-autocomplete></div>";
 
 },{}],39:[function(require,module,exports){
 'use strict';
