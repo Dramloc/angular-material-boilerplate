@@ -16,8 +16,8 @@
       </md-menu-item>
     </md-menu-content>
   </md-sidenav>
-  <div layout="column" flex>
-    <md-toolbar md-whiteframe="4">
+  <md-content layout="column" flex>
+    <md-toolbar md-whiteframe="4" class="amb-toolbar">
       <div class="md-toolbar-tools">
         <md-button class="md-icon-button" hide-gt-sm aria-label="{{'layout.menu' | translate}}" ng-click="$ctrl.handleBackMenuClick()">
           <div class="back-menu" ng-class="{'toggled': !$ctrl.isMenuAvailable()}">
@@ -34,7 +34,7 @@
         <div ui-view="toolbar" layout flex layout-align="end center"></div>
       </div>
     </md-toolbar>
-    <md-content ui-view="content" layout flex></md-content>
-    <div ui-view="fab"></div>
-  </div>
+    <div class="amb-content" ui-view="content" layout flex></div>
+    <div class="amb-fab" ui-view="fab"></div>
+  </md-content>
 </div>

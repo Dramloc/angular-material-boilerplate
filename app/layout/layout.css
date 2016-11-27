@@ -51,3 +51,31 @@ md-sidenav md-toolbar .user-profile .user-email {
 .back-menu.toggled .bar.bottom {
   transform: rotate(135deg) translate(-10px, -13px) scale(0.66, 1);
 }
+
+.amb-toolbar {
+  position: fixed;
+}
+
+.amb-content {
+  margin-top: 64px;
+}
+
+@media (min-width: 0) and (max-width: 959px) and (orientation: portrait) {
+  .amb-content {
+    margin-top: 56px;
+  }
+}
+
+@media (min-width: 0) and (max-width: 959px) and (orientation: landscape) {
+  .amb-content {
+    margin-top: 48px;
+  }
+}
+
+.amb-fab .md-button.md-fab.md-fab-bottom-right {
+  position: fixed;
+}
+
+.amb-fab .md-button.md-fab.md-fab-bottom-left {
+  position: fixed;
+}
