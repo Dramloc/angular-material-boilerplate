@@ -10,6 +10,7 @@ let bundler = browserify(config.scripts.sources)
   .transform('babelify', { presets: ['es2015'] })
   .transform('stringify', {
     appliesTo: { includeExtensions: ['.html'] },
+    minify: config.production,
   })
   .transform('browserify-ngannotate')
   .transform('browserify-css');
