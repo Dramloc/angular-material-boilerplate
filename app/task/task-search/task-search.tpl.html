@@ -1,8 +1,8 @@
 <div layout="row">
-  <md-button class="md-icon-button" aria-label="{{ 'search' | translate }}" ng-click="$ctrl.toggleSearch()" ng-disabled="$ctrl.$mdMedia('gt-md')">
-    <md-icon md-font-library="material-icons">search</md-icon>
+  <md-button class="md-icon-button" aria-label="{{ 'task.search' | translate }}" ng-click="$ctrl.toggleSearch()" ng-disabled="$ctrl.$mdMedia('gt-md')">
+    <md-icon md-font-library="material-icons" aria-label="{{ 'task.search' | translate }}">search</md-icon>
   </md-button>
-  <md-autocomplete md-items="task in $ctrl.search($ctrl.searchText)" placeholder="{{ 'search' | translate }}" md-search-text="$ctrl.searchText"
+  <md-autocomplete md-items="task in $ctrl.search($ctrl.searchText)" placeholder="{{ 'task.search' | translate }}" md-search-text="$ctrl.searchText"
     md-selected-item="$ctrl.selectedTask" md-item-text="task.name" md-selected-item-change="$ctrl.edit($ctrl.selectedTask)"
     ng-show="$ctrl.searchVisible || $ctrl.$mdMedia('gt-md')">
     <md-item-template>

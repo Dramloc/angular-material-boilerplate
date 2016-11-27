@@ -1,7 +1,8 @@
 /* @ngInject */
 function translations($translateProvider) {
   $translateProvider.translations('en', {
-    'menu.tasks': 'Tasks',
+    'task.search': 'Search',
+    'task.no.match': 'No task matching "{{searchText}}" was found',
   });
 }
 
