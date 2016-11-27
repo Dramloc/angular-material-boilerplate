@@ -1,17 +1,19 @@
 .task-list {
-  md-list-item {
-    .md-list-item-text {
-      p {
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+  md-list {
+    md-list-item {
+      .md-list-item-text {
+        p {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
       }
     }
   }
-}
 
-.no-tasks {
-  span {
-    color: rgba(0, 0, 0, 0.38);
+  .empty {
+    span {
+      color: rgba(0, 0, 0, 0.38);
+    }
   }
 }

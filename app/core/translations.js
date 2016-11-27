@@ -9,7 +9,6 @@ function translations($translateProvider) {
     edit: 'Edit',
     delete: 'Delete',
     cancel: 'Cancel',
-    retry: 'Retry',
     search: 'Search',
   });
 

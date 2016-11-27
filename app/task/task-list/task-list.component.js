@@ -3,10 +3,22 @@ import template from './task-list.tpl.html';
 class TaskListController {
 
   /* @ngInject */
-  constructor($state, $ambTaskService) {
-    Object.assign(this, { $state, $ambTaskService });
+  constructor($state, $ambTaskService, $mdToast) {
+    Object.assign(this, { $state, $ambTaskService, $mdToast });
+    this.activate();
+  }
+
+  activate() {
     this.tasks = undefined;
-    this.getTasks();
+    this.loading = true;
+    this.offline = false;
+    this.getTasks()
+      .catch(() => {
+        this.offline = true;
+      })
+      .finally(() => {
+        this.loading = false;
+      });
   }
 
   getTasks() {

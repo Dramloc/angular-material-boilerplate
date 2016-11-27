@@ -38,10 +38,17 @@ md-sidenav md-toolbar .user-profile {
     .back-menu.toggled .bar.bottom {
       transform: rotate(135deg) translate(-10px, -13px) scale(0.66, 1); }
 
-.task-list md-list-item .md-list-item-text p {
+.amb-offline {
+  color: rgba(0, 0, 0, 0.38); }
+  .amb-offline md-icon {
+    font-size: 48px;
+    height: 48px;
+    width: 48px; }
+
+.task-list md-list md-list-item .md-list-item-text p {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis; }
 
-.no-tasks span {
+.task-list .empty span {
   color: rgba(0, 0, 0, 0.38); }
