@@ -3,7 +3,6 @@ function translations($translateProvider) {
   $translateProvider.translations('en', {
     'app.title': 'Angular Material Boilerplate',
     'layout.menu': 'Menu',
-    add: 'Add',
     save: 'Save',
     update: 'Update',
     edit: 'Edit',
