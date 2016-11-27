@@ -44,5 +44,5 @@ gulp.task('build:scripts', bundle);
 
 gulp.task('watch:scripts', () => {
   bundler = watchify(bundler);
-  bundler.on('update', bundle);
+  bundler.on('update', () => gulp.start('build:scripts'));
 });
