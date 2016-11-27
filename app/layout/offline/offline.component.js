@@ -1,5 +1,7 @@
 import template from './offline.tpl.html';
 
+require('./offline.css');
+
 class OfflineController {
 
   /* @ngInject */

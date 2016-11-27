@@ -3,17 +3,18 @@ const $ = require('gulp-load-plugins')();
 
 module.exports = {
   scripts: {
-    sources: './app/index.js',
-    destinationName: pkg.name,
-  },
-  sass: {
-    sources: './app/**/*.scss',
-    destinationName: pkg.name,
+    src: 'app/index.js',
+    destName: pkg.name,
+    dest: 'dist',
   },
   html: {
-    sources: './app/index.html',
+    src: 'app/index.html',
+    dest: 'dist',
+  },
+  assets: {
+    src: 'app/assets/**',
+    dest: 'dist',
   },
   port: process.env.PORT || 3000,
-  dist: 'dist',
   production: $.util.env.production !== undefined || $.util.env.prod !== undefined || process.env.NODE_ENV === 'production',
 };

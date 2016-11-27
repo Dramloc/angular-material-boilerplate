@@ -3,15 +3,15 @@ const $ = require('gulp-load-plugins')();
 const config = require('./config');
 require('./tasks/clean');
 require('./tasks/html');
-require('./tasks/sass');
+require('./tasks/assets');
 require('./tasks/scripts');
 
-gulp.task('watch', ['watch:scripts', 'watch:sass', 'watch:html']);
-gulp.task('build', $.sequence('clean', ['build:sass', 'build:scripts'], 'build:html'));
+gulp.task('watch', ['watch:scripts', 'watch:html', 'watch:assets']);
+gulp.task('build', $.sequence('clean', 'build:scripts', 'build:assets', 'build:html'));
 
 gulp.task('serve', ['build', 'watch'], () => {
   $.connect.server({
-    root: config.dist,
+    root: config.html.dest,
     livereload: !config.production,
     port: config.port,
   });

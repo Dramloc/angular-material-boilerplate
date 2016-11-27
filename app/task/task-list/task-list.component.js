@@ -1,5 +1,7 @@
 import template from './task-list.tpl.html';
 
+require('./task-list.css');
+
 class TaskListController {
 
   /* @ngInject */

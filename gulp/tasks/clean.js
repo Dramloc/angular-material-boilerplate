@@ -3,7 +3,7 @@ const $ = require('gulp-load-plugins')();
 const config = require('../config');
 
 gulp.task('clean', () => {
-  gulp.src(config.dist, {
+  gulp.src(config.html.dest, {
     read: false,
   })
     .pipe($.plumber())

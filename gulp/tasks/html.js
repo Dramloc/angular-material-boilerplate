@@ -2,16 +2,16 @@ const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
 const config = require('../config');
 
-const assets = config.production ? [`${config.dist}/**/*.min.{js,css}`] : [`${config.dist}/**/*.{js,css}`];
+const assets = config.production ? [`${config.html.dest}/**/*.min.js`] : [`${config.html.dest}/**/*.js`];
 
 gulp.task('build:html', () => {
   const sources = gulp.src(assets, {
     read: false,
   });
-  const stream = gulp.src(config.html.sources)
+  const stream = gulp.src(config.html.src)
     .pipe($.plumber())
     .pipe($.inject(sources, {
-      ignorePath: config.dist,
+      ignorePath: config.html.dest,
     }));
 
   if (config.production) {
@@ -21,12 +21,12 @@ gulp.task('build:html', () => {
     }));
   }
 
-  stream.pipe(gulp.dest(config.dist))
+  stream.pipe(gulp.dest(config.html.dest))
     .pipe($.connect.reload());
 
   return stream;
 });
 
 gulp.task('watch:html', () => {
-  gulp.watch(config.html.sources, ['build:html']);
+  gulp.watch(config.html.src, ['build:html']);
 });

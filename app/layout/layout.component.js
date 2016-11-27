@@ -1,5 +1,7 @@
 import template from './layout.tpl.html';
 
+require('./layout.css');
+
 class LayoutController {
 
   /* @ngInject */
