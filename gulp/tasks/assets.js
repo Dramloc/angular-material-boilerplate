@@ -7,7 +7,8 @@ gulp.task('build:assets', () => {
     .pipe($.plumber());
 
   if (config.production) {
-    stream.pipe($.imagemin());
+    stream.pipe($.imagemin())
+      .pipe($.fontmin());
   }
 
   stream.pipe(gulp.dest(config.assets.dest))

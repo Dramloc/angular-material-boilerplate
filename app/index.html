@@ -12,11 +12,10 @@
   <meta name="apple-mobile-web-app-title" content="Angular Material Boilerplate">
   <meta name="application-name" content="Angular Material Boilerplate">
   <meta name="theme-color" content="#2196f3">
-  
+
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <title translate="app.title">Angular Material Boilerplate</title>
   <!-- inject:css -->
   <!-- endinject -->
@@ -32,6 +31,13 @@
   <amb-layout layout flex></amb-layout>
   <!-- inject:js -->
   <!-- endinject -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js', {scope: './'}).then(function(registration) {
+        console.info('service-worker.js registered');
+      });
+    }
+  </script>
 </body>
 
 </html>

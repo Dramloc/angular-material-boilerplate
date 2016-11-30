@@ -6,8 +6,6 @@ import loader from './loader';
 import offline from './offline';
 import theme from './theme';
 
-require('./dependencies.css');
-
 export default angular.module('app.layout', [
   angularMaterial,
   loader,
