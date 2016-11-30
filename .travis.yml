@@ -1,15 +1,15 @@
 language: node_js
 node_js:
-  - stable
+- stable
 cache: yarn
 script:
-  - gulp build --production
-  - tar cvzf dist.tgz dist/*
+- gulp build --production
+- tar cvzf dist.tgz dist/*
 deploy:
-  provider: releases
+  provider: heroku
   api_key:
-    secure: GI/9BNEHRGa2cenU+XQRp6muw2r4TxG3XRlB15Bb27OzF30MhSWk9B8GHFfgnIJWe4E+bI2O9YFxE3McmiwJoxQTIqWwuiaq/tWrETlMKBi/GKiEX8ppUC2VtCbDOb17lYinVDfCX0mAIz04HVz6YqyE5rQj1RNRz6RzbFcBL9gyn1/eXsnKf83A1ON6VsNJMEkYiAmU103jGMPSzdNb//gSUKSL1+20on3jSrC0Q0HlwHcyAht12Iot6/ed2QOEKChhOzcWoyOaamuGew1LoCEhfYnx5Z+kFzGpvu91aQuNzAVlbgnpyhhQP59IJDqJy/9FHl9EmLxyvcVcbgZTxXMnHUOWoc9izL5eSVwUZbv6HST+y5y1L9tiKVB1Ja8FiOtPi1hQ1q/rDnHVRsQWIAnPEHEFOZ2Chz8LumEwJEZpyEcIGeGM0wsdhXx0X55aVN0kmrKrJS1djjGme1FvAeKFoyOwEVRnx1hHiQuEfrXr9CIo0GONND2VwaxHHn5DRM5f39hn9uYL+IbrWH+cVpyIkkQUfCYZZME6qVEjEvkoHDhax7YeNgs+nkvtc1x6I1ZQAMtwqyJE01+16z1Qjq+vjUoHbyjOQUUgjOulVKmmCvmRcfLFYbfAVHDfyw+QCLmoOFBsCz+hL8A/XaFc6eaouE3IKfPPyg5vRcoZwC8=
-  file: dist.tgz
+    secure: n+0xFPDkckXZ1razu7Pvu0ZcA4wJTBHx9JvP9gB5djbuvVFET6BwaA7sUa2WkLHSsxJl4PbzUqhqn2C98ihHWj+i0Ncwbr81ThYprgcGDI5+R8fK9syI96xBjytTtlTAA7AIyx1JKBZ7RL0y15WMK3wq7M0yLHbcrTS0BiCQY3j3WlO7dcIF75E1O1bFOAdT9rGosdW7T4VLfQpJepIa5FZz8zujM85o50mjqt9ZEcnCFAjYCZBRCa/wiSC+cy75XJLvleHTpnctn/pKtlQNJukta5TYz6aaRbaVzHnDPPvik66ptZqMLlF5fqAbQfXhVFHMWDCev6ILxWg5MbZmsPiTJIfdthb+y/zcssNTtZaK80v/af1OkhhQh0GY9z1nXbegno9hiXuOFdd2EXfHrf48PR5+Fb1K5bEe812cvUlZjIhIkODRbEO3IvWXMmtBsbdBB5/yAXRooVxztYU9Id/BNIG4CZF1AIAbC5O6wQoMz/gj1REGOGdl31talhAVPKxisAv+RXoDoIl0dlA81kF07DPJFo/ioiR+U+w1spKxpM5f2Ii/H9XtwHhiNnH/LxjXP1byosqdTiMpp+4SWT+wXdzoRE4cbZV4vNM2HRc3l3DbFvE/ZQRd7QKnSTscRAL7ZzUBTTGgX7VL6SMoe9DZQZ1M2H8tseJKf3HEKcI=
   skip_cleanup: true
+  app: angular-material-boilerplate
   on:
     repo: Dramloc/angular-material-boilerplate
