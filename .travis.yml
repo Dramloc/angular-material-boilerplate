@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- stable
+script: gulp build --production
+deploy:
+  provider: heroku
+  api_key:
+    secure: rQm+9e28RtEZz9YmmYT4V8b7v+wKD6YOuztUv8UO9Z7fVTLO4VRWg24lXTlwR6YZ2/+Ic0f8DRyqNQ5pSRk4V6LYtzXO8/BJxQtcSh31lK2e2Bs7/5c8jPH3ucpcB+ahA+EcDNCCkSK6o/r9M59sQig03YFOhXV5R59Oe1D6MtXlx849MxTObi06e091ip3myQYrn+OKckMVgPNR8sPhSP2Y8k3izOMLDeVfvo56ix6uccOaQBZ8axcE4BqRLQQl38aXPx92LfJ+/Cxbyrn5qojYf/HY43c2TEIuNlSkqAhZW8+3ccmjofvKc1SwCddmAZEYhczah3KOVPuxiGaPLxYVXT97Sj4haHdAbWaxn8ftTYKkWCi8JglZQas57IY6K8jTEE5fJKEQAiYzAx3ByxJQk4wnq09qkuaFPYXBEt67XYnkaWxqG/Uf0tlMYoI17NBF45OCrlKdfR4vFyIsZk4hYPwpGJWWN+J3EvAqc2FMd0tMwITbRR6jrR3jy3+t1IJyJptMKa9wJ4jkTL6+TshmJ+KgyCClu5E7MIOxiuL+VypvSp5yAAbosCVmGZz7EOYhtfftrhWhj3FP6BUrl7z3pL6a+JnvM6kdEc3ysuLqWHkDja4s0BZ5LX5Gy0NpjSioS3WjxV/r8apxm6cQoYtNMqb8o/WHGyDsBEMmttc=
+  app: angular-material-boilerplate
+  on:
+    repo: Dramloc/angular-material-boilerplate
