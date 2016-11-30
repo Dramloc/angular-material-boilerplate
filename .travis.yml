@@ -4,7 +4,6 @@ node_js:
 cache: yarn
 script:
 - gulp build --production
-- tar cvzf dist.tgz dist/*
 deploy:
   provider: heroku
   api_key:
