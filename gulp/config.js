@@ -3,16 +3,16 @@ const $ = require('gulp-load-plugins')();
 
 module.exports = {
   scripts: {
-    src: 'app/index.js',
+    src: 'src/app/index.js',
     destName: pkg.name,
     dest: 'dist',
   },
   html: {
-    src: 'app/index.html',
+    src: 'src/index.html',
     dest: 'dist',
   },
   assets: {
-    src: 'app/assets/**',
+    src: 'src/assets/**',
     dest: 'dist',
   },
   port: process.env.PORT || 3000,
