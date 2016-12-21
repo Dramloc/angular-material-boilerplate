@@ -3,7 +3,7 @@ node_js:
 - stable
 cache: yarn
 script:
-- npm run package
+- npm run build -- -p --env=prod
 deploy:
   provider: heroku
   api_key:

@@ -1,18 +1,32 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const webpack = require('webpack');
+const argv = require('yargs').argv;
+const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 const OfflinePlugin = require('offline-plugin');
 
+const env = argv.env || 'dev';
+const src = path.join(__dirname, 'src');
+const dist = path.join(__dirname, 'dist');
+const app = path.join(src, 'app');
+const template = path.join(src, 'index.ejs');
+const entry = path.join(app, 'index.js');
+
 module.exports = {
   entry: {
-    app: './src/app/index.js',
+    app: entry,
   },
   devtool: 'source-map',
   output: {
-    path: './dist',
+    path: dist,
     filename: '[name].bundle-[hash].js',
+  },
+  resolve: {
+    alias: {
+      env: path.join(src, 'environments', `environment.${env}.js`),
+    },
   },
   module: {
     loaders: [
@@ -41,7 +55,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'src/index.ejs',
+      template,
     }),
     new LiveReloadPlugin(),
     new OfflinePlugin(),

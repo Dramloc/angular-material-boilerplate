@@ -1,9 +1,11 @@
+import env from 'env'; // eslint-disable-line
+
 class $ambTaskService {
 
   /* @ngInject */
-  constructor($q, $resource, $configuration) {
+  constructor($q, $resource) {
     Object.assign(this, { $q });
-    this.Task = $resource(`${$configuration.url}/tasks/:id`, null, {
+    this.Task = $resource(`${env.apiUrl}/tasks/:id`, null, {
       create: { method: 'POST' },
       update: { method: 'PUT' },
     });

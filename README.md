@@ -27,14 +27,12 @@ yarn
 ## Building
 This boilerplate builds are powered by [webpack](https://webpack.github.io/).
 
-### Build non-minified
 ```shell
+# Building non-minified (equivalent to webpack --progress)
 npm run build
-```
 
-### Build minified
-```shell
-npm run package
+# Bulding minified (equivalent to webpack --progress -p)
+npm run build -- -p
 ```
 
 ## Development
@@ -43,3 +41,19 @@ Execute following command to run a local web server with livereload.
 npm run serve
 ```
 Web server will be available at [http://localhost:8080](http://localhost:8080).
+
+## Environments
+Environments are defined in `src/environments` and allow you to define environment-specific configurations.
+You can define other environments by creating other `environment.<env>.js` files.
+
+To use an environment during build or development use the following syntax:
+```shell
+# Build non-minified for dev environment
+npm run build -- --env=dev
+
+# Build minified for prod environment
+npm run build -- -p --env=prod
+
+# Serve with staging environment
+npm run serve -- --env=staging
+```
