@@ -9,6 +9,7 @@ module.exports = {
   entry: {
     app: './src/app/index.js',
   },
+  devtool: 'source-map',
   output: {
     path: './dist',
     filename: '[name].bundle-[hash].js',
