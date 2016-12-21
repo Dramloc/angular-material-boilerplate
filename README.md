@@ -1,5 +1,6 @@
 # Angular Material boilerplate
 
+[![Travis](https://img.shields.io/travis/Dramloc/angular-material-boilerplate.svg)](https://travis-ci.org/Dramloc/angular-material-boilerplate)
 [![David](https://img.shields.io/david/Dramloc/angular-material-boilerplate.svg)](https://github.com/Dramloc/angular-material-boilerplate/blob/master/package.json)
 [![David](https://img.shields.io/david/dev/Dramloc/angular-material-boilerplate.svg)](https://github.com/Dramloc/angular-material-boilerplate/blob/master/package.json)
 
@@ -12,15 +13,33 @@ This boilerplate is a WIP and is still in early development.
 You can see the boilerplate in action [here](https://angular-material-boilerplate.herokuapp.com).
 
 ## Installation
+```
+# Clone repository:
+git clone https://github.com/Dramloc/angular-material-boilerplate.git
 
-### Production
-    $ git clone https://github.com/Dramloc/angular-material-boilerplate.git
-    $ npm install
-    $ gulp --prod
+# Go to directory:
+cd angular-material-boilerplate
 
-### Development
-    $ git clone https://github.com/Dramloc/angular-material-boilerplate.git
-    $ npm install
-    $ gulp serve
+# Install node.js dependencies:
+yarn
+```
 
-This will start a livereload server on [http://localhost:3000](http://localhost:3000) (by default).
+## Building
+This boilerplate builds are powered by [webpack](https://webpack.github.io/).
+
+### Build non-minified
+```
+npm run build
+```
+
+### Build minified
+```
+npm run package
+```
+
+## Development
+Execute following command to run a local web server with livereload.
+```
+npm run serve
+```
+Web server will be available at [http://localhost:8080](http://localhost:8080).
