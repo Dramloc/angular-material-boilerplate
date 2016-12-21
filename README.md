@@ -15,10 +15,12 @@ You can see the boilerplate in action [here](https://angular-material-boilerplat
 
 ### Production
     $ git clone https://github.com/Dramloc/angular-material-boilerplate.git
+    $ npm install
     $ gulp --prod
 
 ### Development
     $ git clone https://github.com/Dramloc/angular-material-boilerplate.git
+    $ npm install
     $ gulp serve
 
 This will start a livereload server on [http://localhost:3000](http://localhost:3000) (by default).
