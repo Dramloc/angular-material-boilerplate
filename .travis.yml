@@ -3,7 +3,7 @@ node_js:
 - stable
 cache: yarn
 script:
-- gulp build --production
+- npm run package
 deploy:
   provider: heroku
   api_key:

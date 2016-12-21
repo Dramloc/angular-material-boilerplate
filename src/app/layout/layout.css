@@ -1,5 +1,3 @@
-@import url("node_modules/angular-material/angular-material.css");
-
 [ng\:cloak],
 [ng-cloak],
 [data-ng-cloak],
@@ -58,12 +56,13 @@ md-sidenav md-toolbar .user-profile .user-email {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: url(/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: url('./MaterialIcons-Regular.eot'); /* For IE6-8 */
   src: local('Material Icons'),
        local('MaterialIcons-Regular'),
-       url(/MaterialIcons-Regular.woff2) format('woff2'),
-       url(/MaterialIcons-Regular.woff) format('woff'),
-       url(/MaterialIcons-Regular.ttf) format('truetype');
+       url('./MaterialIcons-Regular.woff2') format('woff2'),
+       url('./MaterialIcons-Regular.woff') format('woff'),
+       url('./MaterialIcons-Regular.ttf') format('truetype'),
+       url('./MaterialIcons-Regular.svg') format('svg');
 }
 
 .material-icons {
