@@ -13,7 +13,7 @@ This boilerplate is a WIP and is still in early development.
 You can see the boilerplate in action [here](https://angular-material-boilerplate.herokuapp.com).
 
 ## Installation
-```
+```shell
 # Clone repository:
 git clone https://github.com/Dramloc/angular-material-boilerplate.git
 
@@ -28,18 +28,18 @@ yarn
 This boilerplate builds are powered by [webpack](https://webpack.github.io/).
 
 ### Build non-minified
-```
+```shell
 npm run build
 ```
 
 ### Build minified
-```
+```shell
 npm run package
 ```
 
 ## Development
 Execute following command to run a local web server with livereload.
-```
+```shell
 npm run serve
 ```
 Web server will be available at [http://localhost:8080](http://localhost:8080).
