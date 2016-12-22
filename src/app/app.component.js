@@ -1,17 +1,17 @@
-import template from './layout.tpl.html';
+import template from './app.component.html';
+import './material-icons.scss';
+import './app.component.scss';
 
-require('./layout.css');
-
-class LayoutController {
+class AppController {
 
   /* @ngInject */
   constructor($mdSidenav, $state) {
     Object.assign(this, { $mdSidenav, $state });
     this.menuItems = [];
     this.menuItems.push({
-      name: 'menu.tasks',
-      state: 'taskList',
-      icon: 'list',
+      name: 'menu.users',
+      state: 'userList',
+      icon: 'person',
     });
   }
 
@@ -33,7 +33,7 @@ class LayoutController {
 }
 
 export default {
+  selector: 'appRoot',
   template,
-  controller: LayoutController,
-  selector: 'ambLayout',
+  controller: AppController,
 };

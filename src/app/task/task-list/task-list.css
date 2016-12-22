@@ -1,9 +1,0 @@
-.task-list md-list md-list-item .md-list-item-text p {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.task-list .empty span {
-  color: rgba(0, 0, 0, 0.38);
-}

@@ -7,12 +7,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 const OfflinePlugin = require('offline-plugin');
 
+// environment (resolved from command line arguments, 'dev' by default)
 const env = argv.env || 'dev';
+// source folder
 const src = path.join(__dirname, 'src');
+// output folder
 const dist = path.join(__dirname, 'dist');
-const app = path.join(src, 'app');
+// index.html template
 const template = path.join(src, 'index.ejs');
-const entry = path.join(app, 'index.js');
+// application entry point
+const entry = path.join(src, 'app', 'index.js');
 
 module.exports = {
   entry: {
@@ -25,23 +29,33 @@ module.exports = {
   },
   resolve: {
     alias: {
-      env: path.join(src, 'environments', `environment.${env}.js`),
+      // environment configuration resolution
+      $env: path.join(src, 'environments', `environment.${env}.js`),
     },
+    root: [src],
   },
   module: {
     loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'ng-annotate?add=true!babel' },
+      // transpile using babel, add angular dependency injections
+      { test: /\.js$/, exclude: /node_modules/, loader: 'ng-annotate!babel' },
+      // inject css in page
       { test: /\.css$/, loader: 'style!css' },
+      // transpile sass, inject css in page
       { test: /\.scss$/, loader: 'style!css!sass' },
+      // load templates
       { test: /\.html$/, loader: 'html' },
+      // copy fonts and images
       { test: /\.(svg|woff|woff2|ttf|eot|ico|jpg|jpeg|png|gif)$/, loader: 'file?name=[name]-[hash].[ext]' },
+      // copy manifest.json
       { test: /manifest.json$/, loader: 'file?name=[name]-[hash].[ext]!web-app-manifest' },
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    // clean dist folder
+    new CleanWebpackPlugin([dist]),
+    // dedupe dependencies
     new webpack.optimize.DedupePlugin(),
+    // package vendors in separate bundle
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendors',
       filename: '[name].bundle-[hash].js',
@@ -53,11 +67,14 @@ module.exports = {
         return userRequest.indexOf('node_modules') >= 0;
       },
     }),
+    // build index.html
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template,
     }),
-    new LiveReloadPlugin(),
+    // build service worker
     new OfflinePlugin(),
+    // live reload page
+    new LiveReloadPlugin(),
   ],
 };

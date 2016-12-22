@@ -57,3 +57,5 @@ npm run build -- -p --env=prod
 # Serve with staging environment
 npm run serve -- --env=staging
 ```
+
+Environment configuration can the be accessed with `$env` angular constant.

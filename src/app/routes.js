@@ -1,6 +1,6 @@
 /* @ngInject */
 function routes($urlRouterProvider) {
-  $urlRouterProvider.otherwise('/tasks');
+  $urlRouterProvider.otherwise('/users');
 }
 
 export default routes;
