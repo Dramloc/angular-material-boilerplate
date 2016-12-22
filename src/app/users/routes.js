@@ -8,6 +8,15 @@ function routes($stateProvider) {
           template: '<user-list flex layout/>',
         },
       },
+    })
+    .state('userDetail', {
+      url: '/users/{id:int}',
+      back: 'userList',
+      views: {
+        content: {
+          template: '<user-detail flex layout/>',
+        },
+      },
     });
 }
 

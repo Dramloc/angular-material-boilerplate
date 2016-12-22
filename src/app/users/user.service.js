@@ -1,43 +1,39 @@
-class $users {
+import angular from 'angular';
+
+class UserService {
 
   /* @ngInject */
-  constructor($http, $timeout, $env) {
-    Object.assign(this, { $http, $timeout, $env });
-    this.loadedPages = {};
-    this.length = undefined;
-    this.fetchLength();
+  constructor($http, $env, $log) {
+    Object.assign(this, { $http, $log });
+    this.url = $env.userApi.url;
+    this.seed = $env.userApi.seed;
+    this.length = 200;
+    this.pageSize = 20;
   }
 
-  getItemAtIndex(index) {
-    const pageNumber = Math.floor(index / this.$env.userApi.pageSize);
-    const page = this.loadedPages[pageNumber];
-
-    if (page instanceof Array) {
-      return page[index % this.$env.userApi.pageSize];
-    }
-
-    if (undefined === page) {
-      this.loadedPages[pageNumber] = this.fetchPage(pageNumber);
-    }
-    return undefined;
-  }
-
-  getLength() {
-    return this.length;
-  }
-
-  fetchLength() {
-    this.$timeout(() => {
-      this.length = 200;
-    }, 0);
-  }
-
-  fetchPage(pageNumber) {
-    return this.$http.get(`${this.$env.userApi.url}/?page=${pageNumber}&results=${this.$env.userApi.pageSize}&seed=${this.$env.userApi.seed}`)
+  query(options) {
+    return this.$http({
+      url: this.url,
+      params: angular.extend({}, options, { page: options.page, seed: this.seed }),
+    })
       .then((response) => {
-        this.loadedPages[pageNumber] = response.data.results;
+        const users = response.data.results;
+        let index = options.page * options.results;
+        return users.map((user) => {
+          const usr = angular.extend(user, { id: index });
+          index += 1;
+          return usr;
+        });
+      })
+      .catch((error) => {
+        this.$log.error('Failed to execute user query.', error);
       });
+  }
+
+  get(id) {
+    return this.query({ page: Math.floor(id / this.pageSize), results: this.pageSize })
+      .then(users => users[id % this.pageSize]);
   }
 }
 
-export default $users;
+export default UserService;

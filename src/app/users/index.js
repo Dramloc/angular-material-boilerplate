@@ -1,13 +1,17 @@
 import angular from 'angular';
 
-import UserListComponent from './user-list.component';
 import routes from './routes';
 import i18n from './i18n';
-import $users from './user.service';
+import UserService from './user.service';
+import UserListService from './user-list.service';
+import UserListComponent from './user-list.component';
+import UserDetailComponent from './user-detail.component';
 
 export default angular.module('users', [])
-  .service('$users', $users)
+  .service('UserService', UserService)
+  .service('UserListService', UserListService)
   .component(UserListComponent.selector, UserListComponent)
+  .component(UserDetailComponent.selector, UserDetailComponent)
   .config(routes)
   .config(i18n)
   .name;

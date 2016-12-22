@@ -1,0 +1,30 @@
+.user-detail {
+  .user-profile {
+    font-size: 18px;
+    text-transform: capitalize;
+    margin-top: 8px;
+    .user-avatar {
+      border-radius: 50%;
+      overflow: hidden;
+      max-width: 112px;
+      max-height: 112px;
+      min-width: 112px;
+      min-height: 112px;
+      margin: 8px;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .user-information-list {
+    padding: 0 8px;
+
+    .user-information {
+      padding: 8px 0;
+      label {
+        font-size: 11px;
+        color: rgba(0, 0, 0, 0.38);
+      }
+    }
+  }
+}

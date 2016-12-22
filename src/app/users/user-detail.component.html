@@ -1,0 +1,29 @@
+<div class="user-detail" flex layout="column">
+  <div ng-if="$ctrl.user !== undefined" layout="column" flex>
+    <div layout="column" layout-align="center center" class="user-profile">
+      <div class="user-avatar" md-whiteframe="4">
+        <img ng-src="{{$ctrl.user.picture.large}}" />
+      </div>
+      <span class="user-name">{{ $ctrl.user.name.first }} {{ $ctrl.user.name.last }}</span>
+    </div>
+    <md-card class="user-information-list">
+      <div class="user-information" layout="column">
+        <label>Email</label>
+        <span>{{ $ctrl.user.email }}</span>
+      </div>
+      <md-divider></md-divider>
+      <div class="user-information" layout="column">
+        <label>Phone</label>
+        <span>{{ $ctrl.user.phone }}</span>
+      </div>
+      <md-divider></md-divider>
+      <div class="user-information" layout="column">
+        <label>Cellphone</label>
+        <span>{{ $ctrl.user.cell }}</span>
+      </div>
+    </md-card>
+  </div>
+  <div ng-if="$ctrl.user === undefined" flex layout layout-align="center center">
+    <md-progress-circular></md-progress-circular>
+  </div>
+</div>

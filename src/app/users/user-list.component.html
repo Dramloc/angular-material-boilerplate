@@ -1,9 +1,9 @@
 <div class="user-list" flex layout>
   <md-virtual-repeat-container flex ng-if="$ctrl.users.getLength() > 0">
-    <md-list-item class="md-2-line" md-virtual-repeat="user in $ctrl.users" md-on-demand ng-click="null">
+    <md-list-item class="md-2-line" md-virtual-repeat="user in $ctrl.users" md-on-demand ng-click="$ctrl.view(user)">
       <img ng-src="{{user.picture.thumbnail}}" class="md-avatar" alt="{{item.who}}" />
       <div class="md-list-item-text">
-        <h3>{{ user.name.first }} {{ user.name.last }}</h3>
+        <h3 class="user-name">{{ user.name.first }} {{ user.name.last }}</h3>
         <h4>{{ user.email }}</h4>
       </div>
       <md-divider md-inset ng-show="$index !== $ctrl.users.getLength() - 1"></md-divider>

@@ -1,4 +1,7 @@
 .user-list {
+  .user-name {
+    text-transform: capitalize;
+  }
   .empty {
     color: rgba(0, 0, 0, 0.38);
   }

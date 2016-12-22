@@ -4,9 +4,15 @@ import './user-list.component.scss';
 class UserListController {
 
   /* @ngInject */
-  constructor($http, $users) {
-    Object.assign(this, { $http });
-    this.users = $users;
+  constructor($state, UserListService) {
+    Object.assign(this, { $state });
+    this.users = UserListService;
+  }
+
+  view(user) {
+    this.$state.go('userDetail', {
+      id: user.id,
+    });
   }
 }
 
