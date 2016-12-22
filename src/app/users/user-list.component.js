@@ -1,4 +1,5 @@
 import template from './user-list.component.html';
+import './user-list.component.scss';
 
 class UserListController {
 
