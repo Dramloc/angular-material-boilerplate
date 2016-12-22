@@ -5,8 +5,8 @@ import './app.component.scss';
 class AppController {
 
   /* @ngInject */
-  constructor($mdSidenav, $state) {
-    Object.assign(this, { $mdSidenav, $state });
+  constructor($mdSidenav, $mdMedia, $state) {
+    Object.assign(this, { $mdSidenav, $mdMedia, $state });
     this.menuItems = [];
     this.menuItems.push({
       name: 'menu.users',

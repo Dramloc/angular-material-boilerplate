@@ -5,46 +5,9 @@
 md-sidenav {
   md-toolbar {
     .user-profile {
-      font-size: 16px;
+      font-size: 14px;
       .user-email {
         color: rgba(255, 255, 255, 0.8);
-      }
-    }
-  }
-}
-
-.back-menu {
-  margin: 2px;
-
-  .bar {
-    background-color: white;
-    transition: transform 300ms ease-out;
-    height: 2px;
-    width: 18px;
-
-    &.top {
-      transform-origin: 0px 8px;
-    }
-    &.middle {
-      margin-top: 3px;
-      margin-bottom: 3px;
-    }
-    &.bottom {
-      transform-origin: 0px -8px;
-    }
-  }
-
-  &.toggled {
-    .bar {
-      transition: transform 300ms ease-in;
-      &.top {
-        transform: rotate(225deg) translate(-11px, 10px) scale(0.66, 1);
-      }
-      &.middle {
-        transform: rotate(180deg) scale(0.77, 1);
-      }
-      &.bottom {
-        transform: rotate(135deg) translate(-10px, -13px) scale(0.66, 1);
       }
     }
   }

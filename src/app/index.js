@@ -15,6 +15,7 @@ import theme from './theme';
 import routes from './routes';
 import i18n from './i18n';
 import users from './users';
+import menuIcon from './menu-icon';
 
 // Only install service-worker if livereload is disabled
 // this avoids conflicts (service worker caching reloaded resources)
@@ -28,6 +29,7 @@ export default angular.module('app', [
   angularTranslate,
   angularMaterial,
   users,
+  menuIcon,
 ])
   .constant('$env', $env)
   .component(AppComponent.selector, AppComponent)

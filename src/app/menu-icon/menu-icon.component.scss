@@ -1,0 +1,62 @@
+.menu-icon {
+  $duration: 300ms;
+  height: 24px;
+  width: 24px;
+
+  .bar {
+    background-color: #fff;
+    height: 2px;
+    width: 18px;
+    position: absolute;
+    &.top {
+      transform-origin: 66.666% 600%;
+      transform: rotate(0deg) translate(3px, 6px) scale(1, 1);
+    }
+    &.middle {
+      transform-origin: 66.666% 600%;
+      transform: rotate(0deg) translate(3px, 11px) scale(1, 1);
+    }
+    &.bottom {
+      transform-origin: 66.666% 600%;
+      transform: rotate(0deg) translate(3px, 16px) scale(1, 1);
+    }
+  }
+
+  &.toggled-remove {
+    transition: transform 300ms ease-out, transform-origin 300ms ease-out;
+    .bar {
+      transition: transform 300ms ease-out, transform-origin 300ms ease-out;
+      &.top {
+        transform-origin: 66.666% 600%;
+        transform: rotate(360deg) translate(3px, 6px) scale(1, 1);
+      }
+      &.middle {
+        transform-origin: 66.666% 600%;
+        transform: rotate(360deg) translate(3px, 11px) scale(1, 1);
+      }
+      &.bottom {
+        transform-origin: 66.666% 600%;
+        transform: rotate(360deg) translate(3px, 16px) scale(1, 1);
+      }
+    }
+  }
+
+  &.toggled {
+    transition: transform 400ms ease-out, transform-origin 400ms ease-out;
+    .bar {
+      transition: transform 400ms ease-out, transform-origin 400ms ease-out;
+      &.top {
+        transform-origin: 57.53% 600%;
+        transform: rotate(225deg) translate(-0.5px, 7.5px) scale(0.62777, 1);
+      }
+      &.middle {
+        transform-origin: 57.53% 600%;
+        transform: rotate(180deg) translate(-1.5px, 11px) scale(0.8, 1);
+      }
+      &.bottom {
+        transform-origin: 57.53% 600%;
+        transform: rotate(315deg) translate(2.5px, 7.5px) scale(0.62777, 1);
+      }
+    }
+  }
+}
