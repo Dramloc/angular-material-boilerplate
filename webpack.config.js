@@ -39,9 +39,9 @@ module.exports = {
       // transpile using babel, add angular dependency injections
       { test: /\.js$/, exclude: /node_modules/, loader: 'ng-annotate!babel' },
       // inject css in page
-      { test: /\.css$/, loader: 'style!css' },
+      { test: /\.css$/, loader: 'style!css!postcss' },
       // transpile sass, inject css in page
-      { test: /\.scss$/, loader: 'style!css!sass' },
+      { test: /\.scss$/, loader: 'style!css!postcss!sass' },
       // load templates
       { test: /\.html$/, loader: 'html' },
       // copy fonts and images
