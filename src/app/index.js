@@ -15,7 +15,7 @@ import theme from './theme';
 import routes from './routes';
 import i18n from './i18n';
 import users from './users';
-import menuIcon from './menu-icon';
+import menu from './menu';
 
 // Only install service-worker if livereload is disabled
 // this avoids conflicts (service worker caching reloaded resources)
@@ -23,17 +23,23 @@ if ($env.serviceWorker) {
   OfflineRuntime.install();
 }
 
-export default angular.module('app', [
+angular.module('app', [
   angularUiRouter,
   angularSanitize,
   angularTranslate,
   angularMaterial,
   users,
-  menuIcon,
+  menu,
 ])
   .constant('$env', $env)
   .component(AppComponent.selector, AppComponent)
   .config(theme)
   .config(routes)
-  .config(i18n)
-  .name;
+  .config(i18n);
+
+angular
+  .element(document)
+  .ready(() => {
+    angular.module('app-bootstrap', ['app']);
+    angular.bootstrap(document, ['app-bootstrap'], { strictDi: true });
+  });
