@@ -1,4 +1,4 @@
-<md-sidenav md-component-id="sidebar" class="md-sidenav-left" md-whiteframe="16" md-is-locked-open="$mdMedia('gt-sm')">
+<md-sidenav md-component-id="sidebar" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-sm')" md-whiteframe="16dp">
   <md-toolbar class="md-tall">
     <span flex></span>
     <div layout="column" class="user-profile inset">
@@ -17,18 +17,4 @@
     </md-menu-content>
   </nav>
 </md-sidenav>
-
-<div layout="column" flex>
-  <md-toolbar md-whiteframe="4">
-    <div class="md-toolbar-tools">
-      <md-button class="md-icon-button" aria-label="Menu" ng-click="$ctrl.handleBackMenuClick()" ng-if="!$ctrl.$mdMedia('gt-sm') || !$ctrl.isMenuAvailable()">
-        <menu-icon active="!$ctrl.isMenuAvailable()"></menu-icon>
-        <!--<md-icon md-font-library="material-icons" style="position: absolute; top: 8px; left: 8px; color: rgba(0,0,0,0.25);">arrow_back</md-icon>-->
-      </md-button>
-      <span flex></span>
-      <div ui-view="toolbar" layout flex layout-align="end center"></div>
-    </div>
-  </md-toolbar>
-  <md-content ui-view="content" layout flex></md-content>
-  <div ui-view="fab"></div>
-</div>
+<div ui-view="content" flex layout="column" style="margin-left: {{ $ctrl.$mdSidenav('sidebar').isLockedOpen() ? '320px' : '0' }}"></div>

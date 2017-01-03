@@ -5,7 +5,7 @@ function routes($stateProvider) {
       url: '/users',
       views: {
         content: {
-          template: '<user-list flex layout/>',
+          template: '<user-list flex layout="column"/>',
         },
       },
     })

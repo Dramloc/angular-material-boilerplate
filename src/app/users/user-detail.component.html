@@ -1,29 +1,32 @@
-<div class="user-detail" flex layout="column">
-  <div ng-if="$ctrl.user !== undefined" layout="column" flex>
-    <div layout="column" layout-align="center center" class="user-profile">
-      <div class="user-avatar" md-whiteframe="4">
-        <img ng-src="{{$ctrl.user.picture.large}}" />
+<div layout="column" flex>
+  <div layout="column" flex>
+    <div class="user-profile" md-colors="{background: 'default-primary'}" layout="column" layout-align="start stretch" md-whiteframe="4dp">
+      <menu-button></menu-button>
+      <div ng-if="$ctrl.user">
+        <div layout="column" layout-align="start center">
+          <div class="user-avatar">
+            <img ng-src="{{$ctrl.user.picture.large}}" md-colors="{background: 'default-primary-300'}" height="136px" width="136px" alt="{{ $ctrl.user.name.first }} {{ $ctrl.user.name.last }}"
+            />
+          </div>
+          <div class="user-information">
+            <span class="user-name">{{ $ctrl.user.name.first }} {{ $ctrl.user.name.last }}</span>
+            <span class="user-login">{{ $ctrl.user.login.username }}</span>
+          </div>
+        </div>
+        <div class="user-details" layout="row" layout-align="center center">
+          <div class="user-detail" flex flex-gt-sm="25">
+            <label>Email</label>
+            <span>{{ $ctrl.user.email }}</span>
+          </div>
+          <div class="user-detail" flex flex-gt-sm="25">
+            <label>Phone</label>
+            <span>{{ $ctrl.user.cell }}</span>
+          </div>
+        </div>
       </div>
-      <span class="user-name">{{ $ctrl.user.name.first }} {{ $ctrl.user.name.last }}</span>
+      <div ng-show="!$ctrl.user" flex layout layout-align="center center">
+        <md-progress-circular class="md-primary md-hue-1"></md-progress-circular>
+      </div>
     </div>
-    <md-card class="user-information-list">
-      <div class="user-information" layout="column">
-        <label>Email</label>
-        <span>{{ $ctrl.user.email }}</span>
-      </div>
-      <md-divider></md-divider>
-      <div class="user-information" layout="column">
-        <label>Phone</label>
-        <span>{{ $ctrl.user.phone }}</span>
-      </div>
-      <md-divider></md-divider>
-      <div class="user-information" layout="column">
-        <label>Cellphone</label>
-        <span>{{ $ctrl.user.cell }}</span>
-      </div>
-    </md-card>
-  </div>
-  <div ng-if="$ctrl.user === undefined" flex layout layout-align="center center">
-    <md-progress-circular></md-progress-circular>
   </div>
 </div>

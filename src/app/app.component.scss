@@ -1,14 +1,24 @@
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
-}
+app-root {
+  [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+  }
 
-md-sidenav {
-  md-toolbar {
-    .user-profile {
-      font-size: 14px;
-      .user-email {
-        color: rgba(255, 255, 255, 0.8);
+  md-sidenav {
+    will-change: transform;
+    &.md-locked-open.md-closed.md-sidenav-left {
+      position: fixed;
+    }
+    md-toolbar {
+      .user-profile {
+        font-size: 14px;
+        .user-email {
+          color: rgba(255, 255, 255, 0.8);
+        }
       }
     }
+  }
+
+  md-backdrop {
+    will-change: opacity;
   }
 }

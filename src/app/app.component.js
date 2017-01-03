@@ -5,8 +5,8 @@ import './app.component.scss';
 class AppController {
 
   /* @ngInject */
-  constructor($mdSidenav, $mdMedia, $state) {
-    Object.assign(this, { $mdSidenav, $mdMedia, $state });
+  constructor($mdSidenav) {
+    Object.assign(this, { $mdSidenav });
     this.menuItems = [];
     this.menuItems.push({
       name: 'menu.users',
@@ -17,18 +17,6 @@ class AppController {
 
   closeSidenav() {
     this.$mdSidenav('sidebar').close();
-  }
-
-  isMenuAvailable() {
-    return undefined === this.$state.$current.back;
-  }
-
-  handleBackMenuClick() {
-    if (this.isMenuAvailable()) {
-      this.$mdSidenav('sidebar').open();
-      return;
-    }
-    this.$state.go(this.$state.$current.back);
   }
 }
 

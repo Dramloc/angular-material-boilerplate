@@ -1,29 +1,48 @@
-.user-detail {
+user-detail {
   .user-profile {
-    font-size: 18px;
-    text-transform: capitalize;
-    margin-top: 8px;
+    padding: 8px;
+    min-height: 290px;
+
     .user-avatar {
       border-radius: 50%;
+      width: 136px;
+      height: 136px;
       overflow: hidden;
-      max-width: 112px;
-      max-height: 112px;
-      min-width: 112px;
-      min-height: 112px;
-      margin: 8px;
       img {
-        width: 100%;
+        box-sizing: border-box;
+        display: block;
+        border-radius: 50%;
+        padding: 4px;
+        overflow: hidden;
       }
     }
-  }
-  .user-information-list {
-    padding: 0 8px;
-
     .user-information {
-      padding: 8px 0;
-      label {
-        font-size: 11px;
-        color: rgba(0, 0, 0, 0.38);
+      padding: 16px;
+      .user-name {
+        text-transform: capitalize;
+        font-size: 18px;
+      }
+      .user-login {
+        color: rgba(250, 250, 250, 0.8);
+      }
+    }
+    .user-details {
+      .user-detail {
+        padding: 8px;
+        border-top: 1px solid rgba(250, 250, 250, 0.6);
+        border-right: 1px solid rgba(250, 250, 250, 0.6);
+        &:last-child {
+          border-right: none;
+        }
+        label {
+          display: block;
+          font-size: 11px;
+          color: rgba(250, 250, 250, 0.8);
+        }
+        span {
+          display: block;
+          font-size: 12px;
+        }
       }
     }
   }

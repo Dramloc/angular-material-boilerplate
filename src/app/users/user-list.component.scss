@@ -1,8 +1,28 @@
-.user-list {
+user-list {
   .user-name {
     text-transform: capitalize;
   }
   .empty {
     color: rgba(0, 0, 0, 0.38);
+  }
+
+  md-toolbar {
+    position: fixed;
+  }
+
+  md-list {
+    margin-top: 64px;
+  }
+
+  @media (min-width: 0) and (max-width: 959px) and (orientation: portrait) {
+    md-list {
+      margin-top: 56px;
+    }
+  }
+
+  @media (min-width: 0) and (max-width: 959px) and (orientation: landscape) {
+    md-list {
+      margin-top: 48px;
+    }
   }
 }
