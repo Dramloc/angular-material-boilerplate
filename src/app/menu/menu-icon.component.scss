@@ -22,7 +22,7 @@
     }
   }
 
-  &.toggled-remove {
+  &.active-remove {
     transition: transform 300ms ease-out, transform-origin 300ms ease-out;
     .bar {
       transition: transform 300ms ease-out, transform-origin 300ms ease-out;
@@ -41,7 +41,7 @@
     }
   }
 
-  &.toggled {
+  &.active {
     transition: transform 400ms ease-out, transform-origin 400ms ease-out;
     .bar {
       transition: transform 400ms ease-out, transform-origin 400ms ease-out;
